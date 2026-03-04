@@ -10,7 +10,7 @@ public class MapLoader : MonoBehaviour
     
     [Header("Prefabs")]
     public GameObject nodePrefab;          // Prefab do nó (sprite pixel art)
-    public GameObject connectionPrefab;    // Prefab com LineRenderer para conexões
+    public GameObject linePrefab;    // Prefab com LineRenderer para conexões
     
     public MapData _mapData;
     
@@ -67,7 +67,7 @@ public class MapLoader : MonoBehaviour
             if (!_nodes.TryGetValue(connection.from, out var fromNode)) continue;
             if(!_nodes.TryGetValue(connection.to, out var toNode)) continue;
             
-            GameObject line =  Instantiate(connectionPrefab, transform);
+            GameObject line =  Instantiate(linePrefab, transform);
             line.name = $"Connection_{connection.from}_{connection.to}";
             
             var lr = line.GetComponent<LineRenderer>();
