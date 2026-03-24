@@ -129,6 +129,14 @@ public class MapLoader : MonoBehaviour
         var pc = player.GetComponent<Script.Core.PlayerController>();
         pc.Init(startNode.id, this);
         player.name = "Player";
+
+        var cam = Camera.main;
+        if (cam != null)
+        {
+            var follow = cam.GetComponent<Script.Core.CameraFollow>();
+            if (follow == null) follow = cam.gameObject.AddComponent<Script.Core.CameraFollow>();
+            follow.target = player.transform;
+        }
     }
 
     public List<MapNode> GetNeighbors(int nodeId)
