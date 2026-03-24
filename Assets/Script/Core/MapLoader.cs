@@ -19,7 +19,7 @@ public class MapLoader : MonoBehaviour
     
     public float scale = 1.5f;
     
-    private readonly Dictionary<int,MapNode> _nodes = new();
+    public readonly Dictionary<int, MapNode> _nodes = new();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -123,8 +123,25 @@ public class MapLoader : MonoBehaviour
             player.transform.position = pos;
         }
 
-        player.AddComponent<Script.Core.PlayerController>();
+        if (player.GetComponent<Script.Core.PlayerController>() == null)
+            player.AddComponent<Script.Core.PlayerController>();
+
+        var pc = player.GetComponent<Script.Core.PlayerController>();
+        pc.Init(startNode.id, this);
         player.name = "Player";
+    }
+
+    public List<MapNode> GetNeighbors(int nodeId)
+    {
+        var neighbors = new List<MapNode>();
+        foreach (var conn in _mapData.connections)
+        {
+            if (conn.from == nodeId && _nodes.TryGetValue(conn.to, out var toNode))
+                neighbors.Add(toNode);
+            else if (conn.to == nodeId && _nodes.TryGetValue(conn.from, out var fromNode))
+                neighbors.Add(fromNode);
+        }
+        return neighbors;
     }
 
     public void ReloadMap()
