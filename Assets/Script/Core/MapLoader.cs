@@ -11,6 +11,9 @@ public class MapLoader : MonoBehaviour
     [Header("Prefabs")]
     public GameObject nodePrefab;          // Prefab do nó (sprite pixel art)
     public GameObject linePrefab;    // Prefab com LineRenderer para conexões
+
+    [Header("Player")]
+    public GameObject playerPrefab; // assign in Inspector, or leave null to auto-create
     
     public MapData _mapData;
     
@@ -81,6 +84,47 @@ public class MapLoader : MonoBehaviour
         
         Debug.Log($"[MapLoader] Mapa '{_mapData.mapName}' carregado: " +
                   $"{_mapData.nodes.Count} nós, {_mapData.connections.Count} conexões.");
+
+        SpawnPlayer();
+    }
+
+    private void SpawnPlayer()
+    {
+        var startNode = _mapData.nodes.Find(n => n.type == NodeType.Start);
+        if (startNode == null)
+        {
+            Debug.LogWarning("[MapLoader] Nó de início não encontrado.");
+            return;
+        }
+
+        Vector3 pos = _nodes[startNode.id].transform.position;
+
+        GameObject player;
+        if (playerPrefab != null)
+        {
+            player = Instantiate(playerPrefab, pos, Quaternion.identity);
+        }
+        else
+        {
+            player = new GameObject();
+            player.AddComponent<SpriteRenderer>();
+
+            var tex = new Texture2D(32, 32);
+            var pixels = new Color[32 * 32];
+            for (int i = 0; i < pixels.Length; i++) pixels[i] = Color.white;
+            tex.SetPixels(pixels);
+            tex.Apply();
+
+            var sr = player.GetComponent<SpriteRenderer>();
+            sr.sprite = Sprite.Create(tex, new Rect(0, 0, 32, 32), new Vector2(0.5f, 0.5f));
+            sr.color = new Color(0.53f, 0.81f, 0.98f);
+            sr.sortingOrder = 100;
+
+            player.transform.position = pos;
+        }
+
+        player.AddComponent<Script.Core.PlayerController>();
+        player.name = "Player";
     }
 
     public void ReloadMap()

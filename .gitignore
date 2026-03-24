@@ -61,3 +61,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+.devcontainer/devcontainer.json
+
+.devcontainer/Dockerfile
+
+.devcontainer/init-firewall.sh
+
+CLAUDE.md
