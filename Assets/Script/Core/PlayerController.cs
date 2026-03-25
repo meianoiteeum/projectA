@@ -10,18 +10,20 @@ namespace Script.Core
         public float moveDuration = 0.3f;
 
         private int _currentNodeId;
-        private MapLoader _mapLoader;
+        private MapBuilder _mapBuilder;
+        private IReadOnlyList<ConnectionData> _connections;
         private bool _isMoving;
 
-        public void Init(int startNodeId, MapLoader mapLoader)
+        public void Init(int startNodeId, MapBuilder mapBuilder, IReadOnlyList<ConnectionData> connections)
         {
             _currentNodeId = startNodeId;
-            _mapLoader = mapLoader;
+            _mapBuilder = mapBuilder;
+            _connections = connections;
         }
 
         void Update()
         {
-            if (_isMoving || _mapLoader == null) return;
+            if (_isMoving || _mapBuilder == null) return;
 
             Vector2 direction = Vector2.zero;
             if (Keyboard.current.wKey.wasPressedThisFrame) direction = Vector2.up;
@@ -35,7 +37,7 @@ namespace Script.Core
 
         private void TryMove(Vector2 direction)
         {
-            List<MapNode> neighbors = _mapLoader.GetNeighbors(_currentNodeId);
+            List<MapNode> neighbors = _mapBuilder.GetNeighbors(_currentNodeId, _connections);
             Vector2 currentPos = transform.position;
 
             MapNode bestNeighbor = null;

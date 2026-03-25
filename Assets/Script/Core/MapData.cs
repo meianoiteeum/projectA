@@ -26,5 +26,8 @@ namespace Script.Core
         public string mapName;
         public List<NodeData> nodes = new();
         public List<ConnectionData> connections = new();
+
+        public IReadOnlyList<NodeData> Nodes => nodes;
+        public IReadOnlyList<ConnectionData> Connections => connections;
     }
 }

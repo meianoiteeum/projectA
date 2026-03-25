@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuManager : MonoBehaviour
+namespace Script.Util
+{
+    public class MainMenuManager : MonoBehaviour
 {
     [Header("Configurações de Cena")]
     [Tooltip("Nome exato da cena do jogo para carregar.")]
-    [SerializeField] private string gameSceneName = "Game";
+    [SerializeField] private string gameSceneName = "SampleScene";
 
     [Header("Gerenciamento de Telas")]
     [Tooltip("Arraste o painel principal do menu aqui para abri-lo ao iniciar.")]
@@ -40,8 +42,8 @@ public class MainMenuManager : MonoBehaviour
     //Método para carregar a cena de gameplay
     public void PlayGame()
     {
-        Debug.Log("Carregando a cena: " + gameSceneName);
-        SceneManager.LoadScene(gameSceneName);
+        Debug.Log("Carregando a cena de teste: " + "SampleScene");
+        SceneManager.LoadScene("SampleScene");
     }
     //Método para sair do jogo
     public void QuitGame()
@@ -75,4 +77,5 @@ public class MainMenuManager : MonoBehaviour
             Debug.LogWarning("O link para " + platform.ToString() + " está vazio no Inspector!");
         }
     }
+}
 }

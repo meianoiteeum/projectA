@@ -1,163 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.IO;
-using Script.Core;
 using UnityEngine;
 
-public class MapLoader : MonoBehaviour
+namespace Script.Core
 {
-    public string mapFileName = "map_example.json";
-    
-    [Header("Prefabs")]
-    public GameObject nodePrefab;          // Prefab do nó (sprite pixel art)
-    public GameObject linePrefab;    // Prefab com LineRenderer para conexões
-
-    [Header("Player")]
-    public GameObject playerPrefab; // assign in Inspector, or leave null to auto-create
-    
-    public MapData _mapData;
-    
-    public float scale = 1.5f;
-    
-    public readonly Dictionary<int, MapNode> _nodes = new();
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class MapLoader : MonoBehaviour
     {
-        LoadMap();
-    }
+        public string mapFileName = "map_example.json";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [Header("Prefabs")]
+        public GameObject nodePrefab;
+        public GameObject linePrefab;
 
-    void LoadMap()
-    {
-        string path = Path.Combine(Application.streamingAssetsPath, "Maps", mapFileName);
-        
-        string json = File.ReadAllText(path);
-        
-        _mapData = JsonUtility.FromJson<MapData>(json);
-        
-        BuildMap();
-    }
+        [Header("Player")]
+        public GameObject playerPrefab;
 
-    private void BuildMap()
-    {
-        if(_mapData == null) { 
-            Debug.Log("Map Load Error");
-            return;
+        public float scale = 1.5f;
+
+        private MapData _mapData;
+        private readonly MapBuilder _mapBuilder = new();
+        private readonly PlayerSpawner _playerSpawner = new();
+
+        void Start()
+        {
+            LoadMap();
         }
 
-        foreach (var node in _mapData.nodes)
+        void LoadMap()
         {
-            Vector3 pos = new Vector3(node.x * scale, node.y * scale, 0f);
-            GameObject go = Instantiate(nodePrefab, pos, Quaternion.identity, transform);
-            go.name = $"Node_{node.id}_{node.label}";
+            string path = Path.Combine(Application.streamingAssetsPath, "Maps", mapFileName);
 
-            var nodeComponent = go.GetComponent<MapNode>();
-            if (nodeComponent != null)
+            string json;
+            try
             {
-                nodeComponent.Init(node);
-                _nodes[node.id] = nodeComponent;
+                json = File.ReadAllText(path);
             }
-        }
-
-        foreach (var connection in _mapData.connections)
-        {
-            if (!_nodes.TryGetValue(connection.from, out var fromNode)) continue;
-            if(!_nodes.TryGetValue(connection.to, out var toNode)) continue;
-            
-            GameObject line =  Instantiate(linePrefab, transform);
-            line.name = $"Connection_{connection.from}_{connection.to}";
-            
-            var lr = line.GetComponent<LineRenderer>();
-            if (lr != null)
+            catch (Exception e)
             {
-                lr.positionCount = 2;
-                lr.SetPosition(0, fromNode.transform.position);
-                lr.SetPosition(1, toNode.transform.position);
+                Debug.LogError($"[MapLoader] Erro ao ler arquivo '{path}': {e.Message}");
+                return;
             }
-        }
-        
-        Debug.Log($"[MapLoader] Mapa '{_mapData.mapName}' carregado: " +
-                  $"{_mapData.nodes.Count} nós, {_mapData.connections.Count} conexões.");
 
-        SpawnPlayer();
-    }
+            _mapData = JsonUtility.FromJson<MapData>(json);
+            if (_mapData == null)
+            {
+                Debug.LogError($"[MapLoader] JSON inválido em '{mapFileName}'.");
+                return;
+            }
 
-    private void SpawnPlayer()
-    {
-        var startNode = _mapData.nodes.Find(n => n.type == NodeType.Start);
-        if (startNode == null)
-        {
-            Debug.LogWarning("[MapLoader] Nó de início não encontrado.");
-            return;
+            _mapBuilder.Build(_mapData, nodePrefab, linePrefab, transform, scale);
+            _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, playerPrefab, _mapBuilder);
         }
 
-        Vector3 pos = _nodes[startNode.id].transform.position;
-
-        GameObject player;
-        if (playerPrefab != null)
+        public void ReloadMap()
         {
-            player = Instantiate(playerPrefab, pos, Quaternion.identity);
-        }
-        else
-        {
-            player = new GameObject();
-            player.AddComponent<SpriteRenderer>();
+            foreach (Transform child in transform)
+                Destroy(child.gameObject);
 
-            var tex = new Texture2D(32, 32);
-            var pixels = new Color[32 * 32];
-            for (int i = 0; i < pixels.Length; i++) pixels[i] = Color.white;
-            tex.SetPixels(pixels);
-            tex.Apply();
-
-            var sr = player.GetComponent<SpriteRenderer>();
-            sr.sprite = Sprite.Create(tex, new Rect(0, 0, 32, 32), new Vector2(0.5f, 0.5f));
-            sr.color = new Color(0.53f, 0.81f, 0.98f);
-            sr.sortingOrder = 100;
-
-            player.transform.position = pos;
-        }
-
-        if (player.GetComponent<Script.Core.PlayerController>() == null)
-            player.AddComponent<Script.Core.PlayerController>();
-
-        var pc = player.GetComponent<Script.Core.PlayerController>();
-        pc.Init(startNode.id, this);
-        player.name = "Player";
-
-        var cam = Camera.main;
-        if (cam != null)
-        {
-            var follow = cam.GetComponent<Script.Core.CameraFollow>();
-            if (follow == null) follow = cam.gameObject.AddComponent<Script.Core.CameraFollow>();
-            follow.target = player.transform;
-        }
-    }
-
-    public List<MapNode> GetNeighbors(int nodeId)
-    {
-        var neighbors = new List<MapNode>();
-        foreach (var conn in _mapData.connections)
-        {
-            if (conn.from == nodeId && _nodes.TryGetValue(conn.to, out var toNode))
-                neighbors.Add(toNode);
-            else if (conn.to == nodeId && _nodes.TryGetValue(conn.from, out var fromNode))
-                neighbors.Add(fromNode);
-        }
-        return neighbors;
-    }
-
-    public void ReloadMap()
-    {
-        foreach (Transform child in (transform))
-        {
-            Destroy(child.gameObject);
-            _nodes.Clear();
+            _mapBuilder.Clear();
             LoadMap();
         }
     }
