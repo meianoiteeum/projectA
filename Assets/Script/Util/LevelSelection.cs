@@ -40,5 +40,10 @@ public class LevelSelection : MonoBehaviour
         
         // Caso houver alteração nisso favor deixar comentado!
         SceneManager.LoadScene("Level" + numberOfLevel);
+        //Para utilizar quando o jogador terminar a fase 1, lá no finalzinho da fase só adicionar a linha de código abaixo
+        //para avisar ao jogo que ele agora tem acesso à fase 2
+
+        // Salva que o jogador agora alcançou a Fase 2
+        //PlayerPrefs.SetInt("NivelAlcancado", 2);
     }
 }
