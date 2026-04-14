@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2598405713278941328, guid: 90b5efb6749cae1469c106e29f614f15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,15 +104,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d2c99395fb4df5b5c32e44180ae013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Core.MapNode
-  spriteStart: {fileID: 0}
-  spriteCombat: {fileID: 0}
-  spriteShop: {fileID: 0}
-  spriteRest: {fileID: 0}
-  spriteTreasure: {fileID: 0}
-  spriteEnd: {fileID: 0}
+  spriteStart: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteCombat: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteShop: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteRest: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteTreasure: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteEnd: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteNormal: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
   colorStart: {r: 0.2, g: 0.9, b: 0.2, a: 1}
   colorCombat: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   colorShop: {r: 0.9, g: 0.8, b: 0.1, a: 1}
   colorRest: {r: 0.3, g: 0.6, b: 1, a: 1}
   colorTreasure: {r: 1, g: 0.6, b: 0, a: 1}
   colorEnd: {r: 0.8, g: 0.2, b: 0.9, a: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
