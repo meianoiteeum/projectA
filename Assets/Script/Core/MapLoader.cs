@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.Core
 {
@@ -14,8 +15,14 @@ namespace Script.Core
 
         [Header("Player")]
         public GameObject playerPrefab;
-
         public float scale = 1.5f;
+
+        [Header("Controls")]
+        [SerializeField] private Image buttonW;
+        [SerializeField] private Image buttonA;
+        [SerializeField] private Image buttonS;
+        [SerializeField] private Image buttonD;
+
 
         private MapData _mapData;
         private readonly MapBuilder _mapBuilder = new();
