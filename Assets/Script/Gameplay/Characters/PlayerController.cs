@@ -13,6 +13,7 @@ namespace Script.Core
         private MapBuilder _mapBuilder;
         private IReadOnlyList<ConnectionData> _connections;
         private bool _isMoving;
+        private bool _controllingPlayer = true;
 
         public void Init(int startNodeId, MapBuilder mapBuilder, IReadOnlyList<ConnectionData> connections)
         {
@@ -23,7 +24,12 @@ namespace Script.Core
 
         void Update()
         {
-            if (_isMoving || _mapBuilder == null) return;
+            if (_mapBuilder == null) return;
+
+            if (Keyboard.current.tabKey.wasPressedThisFrame)
+                SwitchCharacter();
+
+            if (_isMoving || !_controllingPlayer) return;
 
             Vector2 direction = Vector2.zero;
             if (Keyboard.current.wKey.wasPressedThisFrame) direction = Vector2.up;
@@ -33,6 +39,15 @@ namespace Script.Core
 
             if (direction != Vector2.zero)
                 TryMove(direction);
+        }
+
+        private void SwitchCharacter()
+        {
+            _controllingPlayer = !_controllingPlayer;
+            Transform target = _controllingPlayer
+                ? transform
+                : _mapBuilder.Nodes[_currentNodeId].transform;
+            MapEvents.OnCharacterSwitched?.Invoke(target, _controllingPlayer);
         }
 
         private void TryMove(Vector2 direction)
