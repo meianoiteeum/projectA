@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Script.Util
@@ -6,20 +5,18 @@ namespace Script.Util
     public class ArrowController : MonoBehaviour
     {
         private Transform _playerTransform;
+        private Vector3 _offset;
+
         public void Init(Transform playerTransform)
         {
             _playerTransform = playerTransform;
+            _offset = transform.position - playerTransform.position;
         }
 
         void Update()
         {
-            if (Math.Abs(transform.position.x - _playerTransform.position.x) < 1e-6f)
-                return;
-            
-            Vector3 pos = new Vector3(_playerTransform.position.x, _playerTransform.position.y, _playerTransform.position.z).normalized;
-
-
-            transform.position += pos * 5f * Time.deltaTime;
+            if (_playerTransform == null) return;
+            transform.position = _playerTransform.position + _offset;
         }
     }
 }
