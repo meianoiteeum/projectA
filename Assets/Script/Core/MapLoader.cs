@@ -10,19 +10,19 @@ namespace Script.Core
         public string mapFileName = "map_example.json";
 
         [Header("Prefabs")]
-        public GameObject nodePrefab;
-        public GameObject linePrefab;
+        [SerializeField]
+        private GameObject nodePrefab;
+        [SerializeField]
+        private GameObject linePrefab;
+        [SerializeField]
+        private float scale = 1.5f;
+
 
         [Header("Player")]
-        public GameObject playerPrefab;
-        public float scale = 1.5f;
-
-        [Header("Controls")]
-        [SerializeField] private Image buttonW;
-        [SerializeField] private Image buttonA;
-        [SerializeField] private Image buttonS;
-        [SerializeField] private Image buttonD;
-
+        [SerializeField]
+        private GameObject playerPrefab;
+        [SerializeField]
+        private GameObject arrowPrefab;
 
         private MapData _mapData;
         private readonly MapBuilder _mapBuilder = new();
@@ -56,7 +56,7 @@ namespace Script.Core
             }
 
             _mapBuilder.Build(_mapData, nodePrefab, linePrefab, transform, scale);
-            _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, playerPrefab, _mapBuilder);
+            _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, new Player(playerPrefab, arrowPrefab), _mapBuilder);
         }
 
         public void ReloadMap()
