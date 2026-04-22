@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Script.Gameplay.Characters;
 using UnityEngine;
 using UnityEngine.UI;
 

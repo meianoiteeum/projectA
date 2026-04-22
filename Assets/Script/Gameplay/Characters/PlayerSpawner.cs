@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using Script.Core;
 using Script.Util;
 using UnityEngine;
 
-namespace Script.Core
+namespace Script.Gameplay.Characters
 {
     public class PlayerSpawner
     {

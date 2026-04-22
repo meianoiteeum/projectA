@@ -1,14 +1,16 @@
-using Script.Core;
 using UnityEngine;
 
-public class Player
+namespace Script.Gameplay.Characters
 {
-    public GameObject _playerPrefab;
-    public GameObject _arrowPrefab;
-
-    public Player(GameObject playerPrefab, GameObject arrowPrefab)
+    public class Player
     {
-        _playerPrefab = playerPrefab;
-        _arrowPrefab = arrowPrefab;
+        public GameObject _playerPrefab;
+        public GameObject _arrowPrefab;
+
+        public Player(GameObject playerPrefab, GameObject arrowPrefab)
+        {
+            _playerPrefab = playerPrefab;
+            _arrowPrefab = arrowPrefab;
+        }
     }
 }

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Script.Core
+namespace Script.Gameplay.Characters
 {
     public class PlayerController : MonoBehaviour
     {
@@ -141,7 +142,7 @@ namespace Script.Core
             _isMoving = true;
             _currentNodeId = target.Data.id;
             Vector3 startPos = transform.position;
-            Vector3 endPos = target.transform.position;
+            Vector3 endPos = new Vector3(target.transform.position.x, target.transform.position.y + 0.1f, target.transform.position.z);
             float elapsed = 0f;
 
             while (elapsed < moveDuration)
