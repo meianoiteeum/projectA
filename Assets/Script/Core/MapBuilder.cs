@@ -32,12 +32,14 @@ namespace Script.Core
                 GameObject line = Object.Instantiate(linePrefab, parent);
                 line.name = $"Connection_{connection.from}_{connection.to}";
 
-                var lr = line.GetComponent<LineRenderer>();
-                if (lr != null)
+                var mapLine = line.GetComponent<MapLine>();
+                if (mapLine != null)
                 {
-                    lr.positionCount = 2;
-                    lr.SetPosition(0, fromNode.transform.position);
-                    lr.SetPosition(1, toNode.transform.position);
+                    mapLine.Init(connection, fromNode.transform.position, toNode.transform.position);
+                }
+                else
+                {
+                    Debug.LogWarning($"[MapBuilder] Prefab Line sem componente MapLine (conn {connection.from}->{connection.to}).");
                 }
             }
 

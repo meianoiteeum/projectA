@@ -19,6 +19,7 @@ namespace Script.Core
     {
         public int from;
         public int to;
+        public String status;
     }
     [Serializable]
     public class MapData
