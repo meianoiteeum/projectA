@@ -64,5 +64,20 @@ namespace Script.Core
             }
             return neighbors;
         }
+
+        public List<MapNode> GetWalkableNeighbors(int nodeId, IReadOnlyList<ConnectionData> connections)
+        {
+            var neighbors = new List<MapNode>();
+            foreach (var conn in connections)
+            {
+                if (conn.status != "L") continue;
+
+                if (conn.from == nodeId && _nodes.TryGetValue(conn.to, out var toNode))
+                    neighbors.Add(toNode);
+                else if (conn.to == nodeId && _nodes.TryGetValue(conn.from, out var fromNode))
+                    neighbors.Add(fromNode);
+            }
+            return neighbors;
+        }
     }
 }

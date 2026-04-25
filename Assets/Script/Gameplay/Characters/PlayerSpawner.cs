@@ -18,8 +18,6 @@ namespace Script.Gameplay.Characters
                 return;
             }
 
-            // Vector3 pos = nodes[startNode.id].transform.position;
-
             var nodePos = nodes[startNode.id].transform.position;
             Vector3 pos = new Vector3(nodePos.x, nodePos.y + 0.1f, nodePos.z);
 

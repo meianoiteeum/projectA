@@ -25,33 +25,5 @@ public class ChangeButton : MonoBehaviour
         {
             image.sprite = spriteUp;
         }
-    
-    // InputSystem.onEvent
-    //     .ForDevice<Keyboard>()
-    //     .Where(e => e.HasButtonPress())
-    //     .CallOnce(act =>
-    //     {
-    //         foreach (var control in act.EnumerateChangedControls())
-    //         {
-    //             if (control.name.Equals(button.ToString().ToLower()))
-    //             {
-    //                 image.sprite = spritePress;
-    //             }
-    //         }
-    //     });
-    //
-    // InputSystem.onEvent
-    //     .ForDevice<Keyboard>()
-    //     .Where(e => !e.HasButtonPress())
-    //     .CallOnce(act =>
-    //     {
-    //         foreach (var control in act.EnumerateChangedControls())
-    //         {
-    //             if (control.name.Equals(button.ToString().ToLower()))
-    //             {
-    //                 image.sprite = spriteUp;
-    //             }
-    //         }
-    //     });
     }
 }

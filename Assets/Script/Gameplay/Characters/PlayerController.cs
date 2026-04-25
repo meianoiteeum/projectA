@@ -70,7 +70,7 @@ namespace Script.Gameplay.Characters
 
         private void TryMove(Vector2 direction)
         {
-            List<MapNode> neighbors = _mapBuilder.GetNeighbors(_currentNodeId, _connections);
+            List<MapNode> neighbors = _mapBuilder.GetWalkableNeighbors(_currentNodeId, _connections);
             Vector2 currentPos = transform.position;
 
             MapNode bestNeighbor = null;

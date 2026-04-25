@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 223826376}
   - component: {fileID: 223826378}
   - component: {fileID: 223826377}
+  - component: {fileID: 223826379}
   m_Layer: 6
   m_Name: ButtonD
   m_TagString: Untagged
@@ -194,6 +195,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223826375}
   m_CullTransparentMesh: 1
+--- !u!114 &223826379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223826375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e7ead20fb4e5f43b7b9d2eee7562b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeButton
+  button: 100
+  image: {fileID: 223826377}
+  spritePress: {fileID: -1341430743, guid: 8d2d0a921e6f01b4190ead5c8b761fb1, type: 3}
+  spriteUp: {fileID: 1170168220, guid: 8d2d0a921e6f01b4190ead5c8b761fb1, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +595,7 @@ GameObject:
   - component: {fileID: 1514538762}
   - component: {fileID: 1514538764}
   - component: {fileID: 1514538763}
+  - component: {fileID: 1514538765}
   m_Layer: 6
   m_Name: ButtonA
   m_TagString: Untagged
@@ -642,6 +660,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514538761}
   m_CullTransparentMesh: 1
+--- !u!114 &1514538765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514538761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e7ead20fb4e5f43b7b9d2eee7562b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeButton
+  button: 97
+  image: {fileID: 1514538763}
+  spritePress: {fileID: 1484007907, guid: 8d2d0a921e6f01b4190ead5c8b761fb1, type: 3}
+  spriteUp: {fileID: -2000318378, guid: 8d2d0a921e6f01b4190ead5c8b761fb1, type: 3}
 --- !u!1 &1539733115
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +805,7 @@ GameObject:
   - component: {fileID: 1694690230}
   - component: {fileID: 1694690232}
   - component: {fileID: 1694690231}
+  - component: {fileID: 1694690233}
   m_Layer: 6
   m_Name: ButtonS
   m_TagString: Untagged
@@ -835,6 +870,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694690229}
   m_CullTransparentMesh: 1
+--- !u!114 &1694690233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694690229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e7ead20fb4e5f43b7b9d2eee7562b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeButton
+  button: 115
+  image: {fileID: 1694690231}
+  spritePress: {fileID: 2120715193, guid: 8d2d0a921e6f01b4190ead5c8b761fb1, type: 3}
+  spriteUp: {fileID: 682694521, guid: 8d2d0a921e6f01b4190ead5c8b761fb1, type: 3}
 --- !u!1 &1808739676
 GameObject:
   m_ObjectHideFlags: 0
