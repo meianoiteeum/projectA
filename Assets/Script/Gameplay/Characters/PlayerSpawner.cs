@@ -27,7 +27,7 @@ namespace Script.Gameplay.Characters
                 playerObject.AddComponent<PlayerController>();
 
             var pc = playerObject.GetComponent<PlayerController>();
-            pc.Init(startNode.id, mapBuilder, mapData.Connections);
+            pc.Init(startNode.id, mapBuilder, mapData);
             playerObject.name = "Player";
 
             var cam = Camera.main;

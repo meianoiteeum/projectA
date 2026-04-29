@@ -12,6 +12,7 @@ namespace Script.Core
         public Sprite spriteTreasure;
         public Sprite spriteEnd;
         public Sprite spriteNormal;
+        public Sprite spriteVoid;
 
         [Header("Colors (fallback sem sprite)")]
         public Color colorStart    = new Color(0.2f, 0.9f, 0.2f);
@@ -21,6 +22,7 @@ namespace Script.Core
         public Color colorTreasure = new Color(1.0f, 0.6f, 0.0f);
         public Color colorEnd      = new Color(0.8f, 0.2f, 0.9f);
         public Color colorNormal = new Color(1f,1f,1f);
+        public Color colorVoid = new Color(0f,0f,0f, 0f);
         
         public NodeData Data {get; private set;}
 
@@ -48,6 +50,7 @@ namespace Script.Core
                 NodeType.Rest     => (spriteRest,     colorRest),
                 NodeType.Treasure => (spriteTreasure, colorTreasure),
                 NodeType.End      => (spriteEnd,      colorEnd),
+                NodeType.Voidd    => (spriteVoid,     colorVoid),
                 _ => (_sr.sprite, Color.blue),
             };
 
