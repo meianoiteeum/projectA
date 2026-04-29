@@ -98,7 +98,7 @@ public class PauseMenu : MonoBehaviour
     void OnOptionsClick()
     {
         optionsMenu.SetActive(true);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
         pauseMenu.SetActive(false);
     }
     void OnQuitClick()
