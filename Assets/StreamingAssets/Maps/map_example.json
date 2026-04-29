@@ -40,6 +40,6 @@
     { "from": 11, "to": 13 , "status":  "B"},
     { "from": 11, "to": 16 , "status":  "B"},
     { "from": 13, "to": 12 , "status":  "B"},
-    { "from": 13, "to": 14 , "status":  "B"}
+    { "from": 13, "to": 14 , "status":  "L"}
   ]
 }
