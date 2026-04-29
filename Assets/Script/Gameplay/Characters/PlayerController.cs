@@ -9,21 +9,25 @@ namespace Script.Gameplay.Characters
     public class PlayerController : MonoBehaviour
     {
         public float moveDuration = 0.3f;
+        public float rotationDuration = 0.25f;
 
         private int _currentNodeId;
         private int _selectedNodeId;
         private int _originNodeId;
         private bool _hasMoved;
         private MapBuilder _mapBuilder;
-        private IReadOnlyList<ConnectionData> _connections;
+        private MapData _mapData;
         private bool _isMoving;
+        private bool _isRotating;
         private bool _controllingPlayer = true;
 
-        public void Init(int startNodeId, MapBuilder mapBuilder, IReadOnlyList<ConnectionData> connections)
+        private IReadOnlyList<ConnectionData> Connections => _mapData?.connections;
+
+        public void Init(int startNodeId, MapBuilder mapBuilder, MapData mapData)
         {
             _currentNodeId = startNodeId;
             _mapBuilder = mapBuilder;
-            _connections = connections;
+            _mapData = mapData;
         }
 
         void Update()
@@ -33,7 +37,21 @@ namespace Script.Gameplay.Characters
             if (Keyboard.current.tabKey.wasPressedThisFrame)
                 SwitchCharacter();
 
-            if (_isMoving) return;
+            if (_isMoving || _isRotating) return;
+
+            if (!_controllingPlayer)
+            {
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    TryRotate(true);
+                    return;
+                }
+                if (Keyboard.current.qKey.wasPressedThisFrame)
+                {
+                    TryRotate(false);
+                    return;
+                }
+            }
 
             Vector2 direction = Vector2.zero;
             if (Keyboard.current.wKey.wasPressedThisFrame) direction = Vector2.up;
@@ -51,6 +69,8 @@ namespace Script.Gameplay.Characters
 
         private void SwitchCharacter()
         {
+            if (_isRotating) return;
+
             _controllingPlayer = !_controllingPlayer;
 
             if (_controllingPlayer)
@@ -70,7 +90,7 @@ namespace Script.Gameplay.Characters
 
         private void TryMove(Vector2 direction)
         {
-            List<MapNode> neighbors = _mapBuilder.GetWalkableNeighbors(_currentNodeId, _connections);
+            List<MapNode> neighbors = _mapBuilder.GetWalkableNeighbors(_currentNodeId, Connections);
             Vector2 currentPos = transform.position;
 
             MapNode bestNeighbor = null;
@@ -110,7 +130,7 @@ namespace Script.Gameplay.Characters
                 return;
             }
 
-            List<MapNode> neighbors = _mapBuilder.GetNeighbors(_selectedNodeId, _connections);
+            List<MapNode> neighbors = _mapBuilder.GetNeighbors(_selectedNodeId, Connections);
             Vector2 pos = _mapBuilder.Nodes[_selectedNodeId].transform.position;
 
             MapNode bestNeighbor = null;
@@ -135,6 +155,14 @@ namespace Script.Gameplay.Characters
             _hasMoved = true;
             _mapBuilder.Nodes[_selectedNodeId].Highlight();
             MapEvents.OnCharacterSwitched?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, false);
+        }
+
+        private void TryRotate(bool clockwise)
+        {
+            _isRotating = true;
+            bool started = _mapBuilder.RotateNode(_selectedNodeId, clockwise, _mapData, rotationDuration,
+                () => _isRotating = false);
+            if (!started) _isRotating = false;
         }
 
         private IEnumerator MoveToNode(MapNode target)

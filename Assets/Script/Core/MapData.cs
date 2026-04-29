@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Script.Core
 {
-    public enum NodeType { Start, Combat, Shop, Rest, Treasure, Normal, End }
+    public enum NodeType { Start, Combat, Shop, Rest, Treasure, Normal, End, Voidd }
 
     [Serializable]
     public class NodeData
