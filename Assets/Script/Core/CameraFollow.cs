@@ -8,8 +8,19 @@ namespace Script.Core
 
         private Transform _target;
 
-        private void OnEnable()  => MapEvents.OnPlayerSpawned += SetTarget;
-        private void OnDisable() => MapEvents.OnPlayerSpawned -= SetTarget;
+        private void OnEnable()
+        {
+            MapEvents.OnPlayerSpawned += SetTarget;
+            MapEvents.OnCharacterSwitched += OnCharacterSwitched;
+        }
+
+        private void OnDisable()
+        {
+            MapEvents.OnPlayerSpawned -= SetTarget;
+            MapEvents.OnCharacterSwitched -= OnCharacterSwitched;
+        }
+
+        private void OnCharacterSwitched(Transform t, bool _) => _target = t;
 
         private void SetTarget(Transform t) => _target = t;
 

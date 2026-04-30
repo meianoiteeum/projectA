@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class ChangeButton : MonoBehaviour
 {
@@ -14,14 +16,6 @@ public class ChangeButton : MonoBehaviour
     
     [SerializeField]
     private Sprite spriteUp;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(button))
