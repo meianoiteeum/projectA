@@ -3546,12 +3546,9 @@ MonoBehaviour:
   mapFileName: map_example.json
   nodePrefab: {fileID: 8229194396052425024, guid: e16db96c7d6cf5f4eaead460ffe86513, type: 3}
   linePrefab: {fileID: 4668354740372161833, guid: 0e53968241a3aa643a1889102ecbe609, type: 3}
-  playerPrefab: {fileID: 201781331618697672, guid: 31e04b88d2058974ba472eace478f210, type: 3}
   scale: 1.5
-  buttonW: {fileID: 1808739678}
-  buttonA: {fileID: 1514538763}
-  buttonS: {fileID: 1694690231}
-  buttonD: {fileID: 223826377}
+  playerPrefab: {fileID: 201781331618697672, guid: 31e04b88d2058974ba472eace478f210, type: 3}
+  arrowPrefab: {fileID: 4174805343094770700, guid: 712138d329cb05a42b8c8817f20035fd, type: 3}
 --- !u!4 &980843606
 Transform:
   m_ObjectHideFlags: 0

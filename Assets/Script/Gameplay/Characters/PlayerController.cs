@@ -91,7 +91,7 @@ namespace Script.Gameplay.Characters
         private void TryMove(Vector2 direction)
         {
             List<MapNode> neighbors = _mapBuilder.GetWalkableNeighbors(_currentNodeId, Connections);
-            Vector2 currentPos = transform.position;
+            Vector2 currentPos = _mapBuilder.Nodes[_currentNodeId].transform.position;
 
             MapNode bestNeighbor = null;
             float bestDot = 0f;
