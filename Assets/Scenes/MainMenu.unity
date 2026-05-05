@@ -9371,7 +9371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae43fef8f991484ca1e06a9d04cc59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
-  gameSceneName: Game
+  gameSceneName: Jogo
   initialMenu: {fileID: 760769373}
   allMenus:
   - {fileID: 760769373}
