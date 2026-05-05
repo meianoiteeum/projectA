@@ -20,9 +20,6 @@ namespace Script.Core
         private static Vector2Int CellOf(NodeData n)
             => new(Mathf.RoundToInt(n.x), Mathf.RoundToInt(n.y));
 
-        private NodeType ResolveNodeType(int id)
-            => _nodes.TryGetValue(id, out var n) ? n.Data.type : NodeType.Normal;
-
         public void Build(MapData mapData, GameObject nodePrefab, GameObject linePrefab, Transform parent, float scale)
         {
             _parent = parent;
@@ -54,7 +51,7 @@ namespace Script.Core
                 var mapLine = line.GetComponent<MapLine>();
                 if (mapLine != null)
                 {
-                    mapLine.Init(connection, fromNode.transform.position, toNode.transform.position, ResolveNodeType);
+                    mapLine.Init(connection, fromNode.transform.position, toNode.transform.position);
                     _linesByPair[NormalizePair(connection.from, connection.to)] = mapLine;
                 }
                 else
