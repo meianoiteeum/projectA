@@ -7,7 +7,7 @@ namespace Script.Util
 {
     [Header("Configurações de Cena")]
     [Tooltip("Nome exato da cena do jogo para carregar.")]
-    [SerializeField] private string gameSceneName = "SampleScene";
+    [SerializeField] private string gameSceneName = "Jogo";
 
     [Header("Gerenciamento de Telas")]
     [Tooltip("Arraste o painel principal do menu aqui para abri-lo ao iniciar.")]
@@ -42,8 +42,8 @@ namespace Script.Util
     //Método para carregar a cena de gameplay
     public void PlayGame()
     {
-        Debug.Log("Carregando a cena de teste: " + "SampleScene");
-        SceneManager.LoadScene("SampleScene");
+        Debug.Log("Carregando a cena de teste: " + gameSceneName);
+        SceneManager.LoadScene(gameSceneName);
     }
     //Método para sair do jogo
     public void QuitGame()

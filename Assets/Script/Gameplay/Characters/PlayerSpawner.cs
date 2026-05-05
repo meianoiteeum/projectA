@@ -9,7 +9,7 @@ namespace Script.Gameplay.Characters
     public class PlayerSpawner
     {
         public void Spawn(MapData mapData, IReadOnlyDictionary<int, MapNode> nodes,
-                          Player player, MapBuilder mapBuilder)
+                          Player player, MapBuilder mapBuilder, System.Action onReachEnd = null)
         {
             var startNode = mapData.Nodes.FirstOrDefault(n => n.type == NodeType.Start);
             if (startNode == null)
@@ -27,7 +27,7 @@ namespace Script.Gameplay.Characters
                 playerObject.AddComponent<PlayerController>();
 
             var pc = playerObject.GetComponent<PlayerController>();
-            pc.Init(startNode.id, mapBuilder, mapData);
+            pc.Init(startNode.id, mapBuilder, mapData, onReachEnd);
             playerObject.name = "Player";
 
             var cam = Camera.main;
