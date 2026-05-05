@@ -111,6 +111,9 @@ namespace Script.Core
             return neighbors;
         }
 
+        private bool IsVoiddCell(Vector2Int cell)
+            => _nodesByCell.TryGetValue(cell, out var n) && n != null && n.Data.type == NodeType.Voidd;
+
         public bool RotateNode(int nodeId, bool clockwise, MapData mapData, float duration, Action onComplete)
         {
             if (!_nodes.TryGetValue(nodeId, out var centerNode))
@@ -121,7 +124,7 @@ namespace Script.Core
 
             var centerCell = CellOf(centerNode.Data);
 
-            var incidents = new List<(ConnectionData conn, Vector2Int delta, int otherId)>();
+            var incidents = new List<(ConnectionData conn, Vector2Int delta, int otherId, bool isVoidd)>();
             foreach (var conn in mapData.connections)
             {
                 int otherId;
@@ -142,7 +145,13 @@ namespace Script.Core
                     return false;
                 }
 
-                incidents.Add((conn, delta, otherId));
+                bool isVoidd = conn.status == "V";
+                if (isVoidd != (otherNode.Data.type == NodeType.Voidd))
+                {
+                    Debug.LogWarning($"[MapBuilder] Inconsistência V/Voidd em conn {conn.from}-{conn.to}: status='{conn.status}', otherType={otherNode.Data.type}");
+                }
+
+                incidents.Add((conn, delta, otherId, isVoidd));
             }
 
             if (incidents.Count == 0)
@@ -152,32 +161,70 @@ namespace Script.Core
             }
 
             Vector2Int Rot90(Vector2Int v) => clockwise ? new Vector2Int(v.y, -v.x) : new Vector2Int(-v.y, v.x);
-            Vector2Int Rot180(Vector2Int v) => new Vector2Int(-v.x, -v.y);
+            float angleStep = clockwise ? -90f : 90f;
 
-            bool TryAngle(Func<Vector2Int, Vector2Int> fn, out List<Vector2Int> targets)
+            var finalCells = new Vector2Int[incidents.Count];
+            var stepAngles = new float[incidents.Count];
+
+            for (int i = 0; i < incidents.Count; i++)
             {
-                targets = new List<Vector2Int>(incidents.Count);
-                foreach (var inc in incidents)
+                var inc = incidents[i];
+
+                if (inc.isVoidd)
                 {
-                    var newDelta = fn(inc.delta);
-                    var targetCell = centerCell + newDelta;
-                    if (!_nodesByCell.ContainsKey(targetCell))
+                    finalCells[i] = centerCell + inc.delta;
+                    stepAngles[i] = 0f;
+                    continue;
+                }
+
+                var d = inc.delta;
+                float acc = 0f;
+                bool resolved = false;
+                for (int hops = 0; hops < 4; hops++)
+                {
+                    d = Rot90(d);
+                    acc += angleStep;
+                    var target = centerCell + d;
+                    if (!_nodesByCell.ContainsKey(target))
                     {
-                        targets = null;
+                        onComplete?.Invoke();
                         return false;
                     }
-                    targets.Add(targetCell);
+                    if (IsVoiddCell(target)) continue;
+
+                    finalCells[i] = target;
+                    stepAngles[i] = acc;
+                    resolved = true;
+                    break;
                 }
-                return true;
+
+                if (!resolved)
+                {
+                    onComplete?.Invoke();
+                    return false;
+                }
             }
 
-            float totalAngle;
-            List<Vector2Int> finalCells;
-            if (TryAngle(Rot90, out finalCells))
-                totalAngle = clockwise ? -90f : 90f;
-            else if (TryAngle(Rot180, out finalCells))
-                totalAngle = clockwise ? -180f : 180f;
-            else
+            for (int i = 0; i < incidents.Count; i++)
+            {
+                for (int j = i + 1; j < incidents.Count; j++)
+                {
+                    if (incidents[i].isVoidd && incidents[j].isVoidd) continue;
+                    if (finalCells[i] == finalCells[j])
+                    {
+                        Debug.LogWarning($"[MapBuilder] Colisão em rotação: incidents {i} e {j} alvejam {finalCells[i]}");
+                        onComplete?.Invoke();
+                        return false;
+                    }
+                }
+            }
+
+            bool anyRotation = false;
+            for (int i = 0; i < stepAngles.Length; i++)
+            {
+                if (!Mathf.Approximately(stepAngles[i], 0f)) { anyRotation = true; break; }
+            }
+            if (!anyRotation)
             {
                 onComplete?.Invoke();
                 return false;
@@ -186,12 +233,14 @@ namespace Script.Core
             Vector3 pivotWorld = centerNode.transform.position;
             var plan = new List<RotationStep>(incidents.Count);
             var newOtherIds = new List<int>(incidents.Count);
+            var incidentsForCommit = new List<(ConnectionData conn, Vector2Int delta, int otherId)>(incidents.Count);
 
             for (int i = 0; i < incidents.Count; i++)
             {
                 var inc = incidents[i];
                 var newOtherNode = _nodesByCell[finalCells[i]];
                 newOtherIds.Add(newOtherNode.Data.id);
+                incidentsForCommit.Add((inc.conn, inc.delta, inc.otherId));
 
                 var line = GetLine(nodeId, inc.otherId);
                 if (line == null) continue;
@@ -206,14 +255,15 @@ namespace Script.Core
                     endpointIndex = endpointIndex,
                     startEndpoint = line.GetEndpoint(endpointIndex),
                     finalEndpoint = newOtherNode.transform.position,
+                    angleDeg = stepAngles[i],
                 });
             }
 
-            Debug.Log($"[MapBuilder] RotateNode id={nodeId} clockwise={clockwise} angle={totalAngle} count={incidents.Count}");
+            Debug.Log($"[MapBuilder] RotateNode id={nodeId} clockwise={clockwise} incidents={incidents.Count}");
 
-            _animator.StartCoroutine(_animator.AnimateRotation(plan, pivotWorld, totalAngle, duration, () =>
+            _animator.StartCoroutine(_animator.AnimateRotation(plan, pivotWorld, duration, () =>
             {
-                CommitRotation(nodeId, incidents, newOtherIds);
+                CommitRotation(nodeId, incidentsForCommit, newOtherIds);
                 onComplete?.Invoke();
             }));
 
