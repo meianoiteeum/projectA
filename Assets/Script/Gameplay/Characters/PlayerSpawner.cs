@@ -8,6 +8,9 @@ namespace Script.Gameplay.Characters
 {
     public class PlayerSpawner
     {
+        private GameObject _currentPlayer;
+        private GameObject _currentArrow;
+
         public void Spawn(MapData mapData, IReadOnlyDictionary<int, MapNode> nodes,
                           Player player, MapBuilder mapBuilder, System.Action onReachEnd = null)
         {
@@ -18,10 +21,14 @@ namespace Script.Gameplay.Characters
                 return;
             }
 
+            if (_currentArrow != null) Object.Destroy(_currentArrow);
+            if (_currentPlayer != null) Object.Destroy(_currentPlayer);
+
             var nodePos = nodes[startNode.id].transform.position;
             Vector3 pos = new Vector3(nodePos.x, nodePos.y + 0.1f, nodePos.z);
 
             GameObject playerObject = Object.Instantiate(player._playerPrefab, pos, Quaternion.identity);
+            _currentPlayer = playerObject;
 
             if (playerObject.GetComponent<PlayerController>() == null)
                 playerObject.AddComponent<PlayerController>();
@@ -46,7 +53,8 @@ namespace Script.Gameplay.Characters
             Vector3 pos = new Vector3(playerTransform.position.x, playerTransform.position.y + 1, playerTransform.position.z);
             
             GameObject arrowObject = Object.Instantiate(arrowPrefab, pos, Quaternion.identity);
-            
+            _currentArrow = arrowObject;
+
             if(arrowObject.GetComponent<ArrowController>() == null)
                 arrowObject.AddComponent<ArrowController>();
             
