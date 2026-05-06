@@ -64,7 +64,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     //Função de pausar o jogo
-    void PauseGame()
+    public void PauseGame()
     {
         isPaused = true;
         Debug.Log("Jogo pausado");

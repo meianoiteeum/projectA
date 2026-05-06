@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class HUD_AnimationController : MonoBehaviour
 {
-    [SerializeField] TMPro.TextMeshProUGUI _text;
+    [SerializeField] TMPro.TextMeshProUGUI _textMode;
+    [SerializeField] TMPro.TextMeshProUGUI _textTab;
     [SerializeField] Animation hudAnimation;
     [SerializeField] private GameObject buttons;
     
@@ -12,7 +13,8 @@ public class HUD_AnimationController : MonoBehaviour
     void Start()
     {
         buttons.SetActive(false);
-        _text.text = "GAME MODE";
+        _textMode.text = "GAME MODE";
+        _textTab.text = "TAB";
     }
 
     private void Update()
@@ -33,12 +35,14 @@ public class HUD_AnimationController : MonoBehaviour
     {
         if (_isPreparationMode)
         {
-            _text.text = "PREPARATION MODE";
+            _textMode.text = "PREPARATION MODE";
+            _textTab.text = "TAB";
             buttons.SetActive(true);
         }
         else
         {
-            _text.text = "GAME MODE";
+            _textMode.text = "GAME MODE";
+            _textTab.text = "TAB";
             buttons.SetActive(false);
         }
     }
