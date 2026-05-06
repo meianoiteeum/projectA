@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Script.Core
@@ -13,12 +12,10 @@ namespace Script.Core
         public ConnectionData Data { get; private set; }
 
         private LineRenderer _lr;
-        private Func<int, NodeType> _typeResolver;
 
-        public void Init(ConnectionData data, Vector3 fromPos, Vector3 toPos, Func<int, NodeType> typeResolver)
+        public void Init(ConnectionData data, Vector3 fromPos, Vector3 toPos)
         {
             Data = data;
-            _typeResolver = typeResolver;
             _lr = GetComponent<LineRenderer>();
             if (_lr == null)
             {
@@ -47,17 +44,12 @@ namespace Script.Core
         public void RefreshColor()
         {
             if (_lr == null) return;
-            Color c;
-            if (Data != null && _typeResolver != null &&
-                (_typeResolver(Data.from) == NodeType.Voidd ||
-                 _typeResolver(Data.to)   == NodeType.Voidd))
+            Color c = Data?.status switch
             {
-                c = colorVoidd;
-            }
-            else
-            {
-                c = Data != null && Data.status == "L" ? colorReleased : colorBlocked;
-            }
+                "L" => colorReleased,
+                "V" => colorVoidd,
+                _   => colorBlocked,
+            };
             _lr.startColor = c;
             _lr.endColor   = c;
         }

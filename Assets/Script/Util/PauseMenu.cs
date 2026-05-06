@@ -64,12 +64,12 @@ public class PauseMenu : MonoBehaviour
     }
 
     //Função de pausar o jogo
-    void PauseGame()
+    public void PauseGame()
     {
         isPaused = true;
         Debug.Log("Jogo pausado");
         pauseMenu.SetActive(true);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
     }
     
     //Função de despausar o jogo
@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Debug.Log("Jogo despausado");
         pauseMenu.SetActive(false);
-        Time.timeScale = 0;
+        Time.timeScale = 1;
 
     }
 
@@ -95,7 +95,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    void OnOptionsClick()
+    public void OnOptionsClick()
     {
         optionsMenu.SetActive(true);
         Time.timeScale = 0;

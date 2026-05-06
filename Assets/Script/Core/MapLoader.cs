@@ -57,7 +57,7 @@ namespace Script.Core
             }
 
             _mapBuilder.Build(_mapData, nodePrefab, linePrefab, transform, scale);
-            _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, new Player(playerPrefab, arrowPrefab), _mapBuilder);
+            _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, new Player(playerPrefab, arrowPrefab), _mapBuilder, ReloadMap);
         }
 
         public void ReloadMap()
