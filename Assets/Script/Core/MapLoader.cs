@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Script.Gameplay.Characters;
+using Script.Gameplay.Enemies;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +26,14 @@ namespace Script.Core
         [SerializeField]
         private GameObject arrowPrefab;
 
+        [Header("Enemies")]
+        [SerializeField]
+        private GameObject enemyPrefab;
+
         private MapData _mapData;
         private readonly MapBuilder _mapBuilder = new();
         private readonly PlayerSpawner _playerSpawner = new();
+        private readonly EnemySpawner _enemySpawner = new();
 
         void Start()
         {
@@ -58,6 +64,7 @@ namespace Script.Core
 
             _mapBuilder.Build(_mapData, nodePrefab, linePrefab, transform, scale);
             _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, new Player(playerPrefab, arrowPrefab), _mapBuilder, ReloadMap);
+            _enemySpawner.Spawn(_mapData, _mapBuilder.Nodes, enemyPrefab);
         }
 
         public void ReloadMap()

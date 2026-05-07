@@ -10216,6 +10216,7 @@ MonoBehaviour:
   scale: 1.5
   playerPrefab: {fileID: 201781331618697672, guid: 31e04b88d2058974ba472eace478f210, type: 3}
   arrowPrefab: {fileID: 4174805343094770700, guid: 712138d329cb05a42b8c8817f20035fd, type: 3}
+  enemyPrefab: {fileID: 7830175234801741989, guid: f9fd8105a88fe4f43824af6deff7eb8d, type: 3}
 --- !u!4 &980843606
 Transform:
   m_ObjectHideFlags: 0
