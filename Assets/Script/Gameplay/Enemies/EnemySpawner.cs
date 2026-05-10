@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Script.Core;
@@ -9,7 +10,7 @@ namespace Script.Gameplay.Enemies
     {
         private readonly List<GameObject> _currentEnemies = new();
 
-        public void Spawn(MapData mapData, IReadOnlyDictionary<int, MapNode> nodes, GameObject enemyPrefab)
+        public void Spawn(MapData mapData, IReadOnlyDictionary<int, MapNode> nodes, GameObject enemyPrefab, Action onHitPlayer)
         {
             if (enemyPrefab == null)
             {
@@ -18,7 +19,7 @@ namespace Script.Gameplay.Enemies
             }
 
             foreach (var enemy in _currentEnemies)
-                if (enemy != null) Object.Destroy(enemy);
+                if (enemy != null) UnityEngine.Object.Destroy(enemy);
             _currentEnemies.Clear();
 
             var combatNodes = mapData.Nodes.Where(n => n.type == NodeType.Combat);
@@ -26,8 +27,12 @@ namespace Script.Gameplay.Enemies
             {
                 var nodePos = nodes[nodeData.id].transform.position;
                 Vector3 pos = new Vector3(nodePos.x, nodePos.y, nodePos.z);
-                var enemyObject = Object.Instantiate(enemyPrefab, pos, Quaternion.identity);
+                var enemyObject = UnityEngine.Object.Instantiate(enemyPrefab, pos, Quaternion.identity);
                 enemyObject.name = $"Enemy_{nodeData.id}";
+
+                var collision = enemyObject.GetComponent<EnemyCollision>() ?? enemyObject.AddComponent<EnemyCollision>();
+                collision.Init(onHitPlayer);
+
                 _currentEnemies.Add(enemyObject);
             }
         }
