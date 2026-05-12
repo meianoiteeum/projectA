@@ -68,6 +68,7 @@ namespace Script.Gameplay.Characters
                 TryMove(direction);
             else
                 TryMoveNode(direction);
+
         }
 
         private void SwitchCharacter()
