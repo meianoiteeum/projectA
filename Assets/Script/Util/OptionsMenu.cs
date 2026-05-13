@@ -58,11 +58,6 @@ public class OptionsMenu : MonoBehaviour
         StartAudioSettings();
     }
 
-    private void Update()
-    {
-        MudarAba();
-    }
-
     // --- Tabs System ---
     
     //Função chamada para mudar a aba. O 'direction' será 1 (direita) ou -1 (esquerda).
@@ -104,6 +99,7 @@ public class OptionsMenu : MonoBehaviour
     // --- Screen Res Function ---
     private void StartScreenResolution()
     {
+        availableScreenResolutions = Screen.resolutions;
         int savedIndex = GameSave.LoadScreenResolution(-1);
         
         // Tenta carregar o índice salvo (-1 é o padrão para "não encontrei save")
@@ -149,8 +145,8 @@ public class OptionsMenu : MonoBehaviour
         Resolution resolution = availableScreenResolutions[currentResolutionIndex];
         
         // 2. Aplica a resolução (largura, altura, estado atual da tela cheia)
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode);
+        Canvas.ForceUpdateCanvases();
         // 3. Salva o índice no GameSave
         GameSave.SaveScreenResolution(currentResolutionIndex);
     }
@@ -230,19 +226,14 @@ public class OptionsMenu : MonoBehaviour
     // --- Input System ---
     
     // A função que é chamada quando o jogador aperta os botões mapeados.
-     void MudarAba()
+     public void SetTab(int tabIndex)
     {
-        
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (tabIndex >= 0 && tabIndex < tabsContent.Length)
         {
-            ChangeTab(-1); // Muda para a aba anterior.
-        }
-        // Se o valor X for positivo, significa que apertou Right (E)   
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            ChangeTab(1); // Muda para a próxima aba.
+            currentTab = tabIndex;
+            UpdateTabsVisual();
         }
         
-        // Add mouse function here
     }
+     
 }
