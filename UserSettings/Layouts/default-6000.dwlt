@@ -824,14 +824,11 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -3138
-      - m_Data: -2708
-      - m_Data: -1314
-      - m_Data: 49616
-      - m_Data: 49748
-      - m_Data: 51452
-      - m_Data: 52088
-      - m_Data: 52756
+      - m_Data: -4348
+      - m_Data: -3970
+      - m_Data: -3122
+      - m_Data: -2946
+      - m_Data: -1332
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1356,7 +1353,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 1079.5673, y: 657.3364, z: 0.56638706}
     speed: 2
-    m_Value: {x: 1078.9868, y: 659.27106, z: 0.23169437}
+    m_Value: {x: 1079.5673, y: 657.3364, z: 0.56638706}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1408,7 +1405,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 710.28925
     speed: 2
-    m_Value: 743.75836
+    m_Value: 710.28925
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1582,7 +1579,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Script/Util
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1592,31 +1589,31 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Script/Util
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\vitor\OneDrive\Documentos\PI_Repo\projectA
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
+    scrollPos: {x: 0, y: 142.79993}
     m_SelectedIDs:
-    - m_Data: 50612
+    - m_Data: 51026
     m_LastClickedID:
-      m_Data: 50612
+      m_Data: 51026
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50608
-    - m_Data: 50610
-    - m_Data: 50612
-    - m_Data: 50614
-    - m_Data: 50616
     - m_Data: 50618
     - m_Data: 50620
     - m_Data: 50622
     - m_Data: 50624
     - m_Data: 50626
     - m_Data: 50628
+    - m_Data: 50630
+    - m_Data: 50632
+    - m_Data: 50634
+    - m_Data: 50636
+    - m_Data: 50638
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1650,17 +1647,17 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 50608
-    - m_Data: 50610
-    - m_Data: 50612
-    - m_Data: 50614
-    - m_Data: 50616
     - m_Data: 50618
     - m_Data: 50620
     - m_Data: 50622
     - m_Data: 50624
     - m_Data: 50626
     - m_Data: 50628
+    - m_Data: 50630
+    - m_Data: 50632
+    - m_Data: 50634
+    - m_Data: 50636
+    - m_Data: 50638
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
