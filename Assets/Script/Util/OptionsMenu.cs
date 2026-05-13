@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
-using UnityEngine.InputSystem;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -105,20 +104,25 @@ public class OptionsMenu : MonoBehaviour
     // --- Screen Res Function ---
     private void StartScreenResolution()
     {
-        //Pega do sistema operacional (Windows/Mac) todas as resoluções que o monitor atual aceita.
-        availableScreenResolutions = Screen.resolutions;
+        int savedIndex = GameSave.LoadScreenResolution(-1);
         
-        //Passa por todas essas resoluções uma por uma
-        for (int res = 0; res < availableScreenResolutions.Length; res++)
+        // Tenta carregar o índice salvo (-1 é o padrão para "não encontrei save")
+        if (savedIndex != -1 && savedIndex < availableScreenResolutions.Length)
         {
-            //e checa: A largura, altura e taxa de quadros (Hz) dessa resolução é igual à que o jogo está rodando agora?
-            if (availableScreenResolutions[res].width == Screen.currentResolution.width &&
-                availableScreenResolutions[res].height == Screen.currentResolution.height && 
-                availableScreenResolutions[res].refreshRateRatio.value == Screen.currentResolution.refreshRateRatio.value) 
+            currentResolutionIndex = savedIndex;
+        }
+        else
+        {
+            // Se não tem save, busca a resolução atual do monitor do jogador
+            for (int res = 0; res < availableScreenResolutions.Length; res++)
             {
-                //Se achou, salva o número (índice) dela e para de procurar ('break').
-                currentResolutionIndex = res;
-                break;
+                if (availableScreenResolutions[res].width == Screen.currentResolution.width &&
+                    availableScreenResolutions[res].height == Screen.currentResolution.height && 
+                    Mathf.RoundToInt((float)availableScreenResolutions[res].refreshRateRatio.value) == Mathf.RoundToInt((float)Screen.currentResolution.refreshRateRatio.value)) 
+                {
+                    currentResolutionIndex = res;
+                    break;
+                }
             }
         }
         //Atualiza o textinho na tela para o jogador ver a resolução atual.
@@ -141,9 +145,14 @@ public class OptionsMenu : MonoBehaviour
         
         UpdateResolutionText();
         
-        //Pega a nova resolução escolhida e manda a Unity aplicá-la de verdade no monitor.
+        // 1. Pega a resolução baseada no índice
         Resolution resolution = availableScreenResolutions[currentResolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, resolution.refreshRateRatio);
+        
+        // 2. Aplica a resolução (largura, altura, estado atual da tela cheia)
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        
+        // 3. Salva o índice no GameSave
+        GameSave.SaveScreenResolution(currentResolutionIndex);
     }
     
     //Função que escreve a resolução no formato "Largura x Altura (Hz) Hz".
@@ -166,6 +175,7 @@ public class OptionsMenu : MonoBehaviour
         //Aplica a tela cheia.    
         Debug.Log("Ativou Fullscreen");
         Screen.fullScreen = isFullscreen;
+        GameSave.SaveFullScreenResolution(isFullscreen);
     }
     
     // --- AUDIO SYSTEM ---
@@ -176,9 +186,9 @@ public class OptionsMenu : MonoBehaviour
         //'PlayerPrefs' é a "memória do jogo". Ele procura se o jogador já salvou algum volume antes.
         //Se não achar nada (é a primeira vez jogando), ele usa o valor padrão '1f' (volume máximo).
         //É importante que os Sliders na Unity estejam configurados de 0.0001 a 1.
-        float masterVol = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        float musicVol = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        float sfxVol = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        float masterVol = GameSave.LoadVolume("MasterVolume", 0.8f);
+        float musicVol = GameSave.LoadVolume("MusicVolume", 0.8f);
+        float sfxVol = GameSave.LoadVolume("SFXVolume", 0.8f);
 
         //Atualiza a posição da "bolinha" nos Sliders da interface para combinar com o volume salvo.
         masterVolumeSlider.value = masterVol;
@@ -198,7 +208,7 @@ public class OptionsMenu : MonoBehaviour
         // Usar Log10 converte o valor do Slider (de 0.0001 a 1) para a curva correta em dB.
         audioMixer.SetFloat("MasterParam", Mathf.Log10(volume) * 20);
         //Salva preferencia do jogador no computador dele.
-        PlayerPrefs.SetFloat("MasterVolume", volume);
+        GameSave.SaveVolume("MasterVolume", volume);
     }
 
     // Chamar essa função no evento OnValueChanged do Slider de Music
@@ -206,7 +216,7 @@ public class OptionsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("MusicParam", Mathf.Log10(volume) * 20);
         //Salva preferencia do jogador no computador dele.
-        PlayerPrefs.SetFloat("MusicVolume", volume); 
+        GameSave.SaveVolume("MusicVolume", volume);
     }
 
     // Chamar essa função no evento OnValueChanged do Slider de SFX
@@ -214,7 +224,7 @@ public class OptionsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("SFXParam", Mathf.Log10(volume) * 20);
         //Salva preferencia do jogador no computador dele.
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        GameSave.SaveVolume("SFXVolume", volume);
     }
     
     // --- Input System ---
@@ -232,5 +242,7 @@ public class OptionsMenu : MonoBehaviour
         {
             ChangeTab(1); // Muda para a próxima aba.
         }
+        
+        // Add mouse function here
     }
 }

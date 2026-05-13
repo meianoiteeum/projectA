@@ -57,10 +57,10 @@ namespace Script.Gameplay.Characters
             }
 
             Vector2 direction = Vector2.zero;
-            if (Keyboard.current.wKey.wasPressedThisFrame) direction = Vector2.up;
-            else if (Keyboard.current.sKey.wasPressedThisFrame) direction = Vector2.down;
-            else if (Keyboard.current.aKey.wasPressedThisFrame) direction = Vector2.left;
-            else if (Keyboard.current.dKey.wasPressedThisFrame) direction = Vector2.right;
+            if (Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame) direction = Vector2.up;
+            else if (Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.downArrowKey.wasPressedThisFrame) direction = Vector2.down;
+            else if (Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.leftArrowKey.wasPressedThisFrame) direction = Vector2.left;
+            else if (Keyboard.current.dKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame) direction = Vector2.right;
 
             if (direction == Vector2.zero) return;
 
