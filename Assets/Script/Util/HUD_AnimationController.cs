@@ -13,7 +13,7 @@ public class HUD_AnimationController : MonoBehaviour
     void Start()
     {
         buttons.SetActive(false);
-        _textMode.text = "GAME MODE";
+        _textMode.text = "MOVE MODE";
         _textTab.text = "TAB";
     }
 
@@ -35,13 +35,13 @@ public class HUD_AnimationController : MonoBehaviour
     {
         if (_isPreparationMode)
         {
-            _textMode.text = "PREPARATION MODE";
+            _textMode.text = "ROTATE MODE";
             _textTab.text = "TAB";
             buttons.SetActive(true);
         }
         else
         {
-            _textMode.text = "GAME MODE";
+            _textMode.text = "MOVE MODE";
             _textTab.text = "TAB";
             buttons.SetActive(false);
         }
