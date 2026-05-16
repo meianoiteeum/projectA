@@ -142,6 +142,8 @@ namespace Script.Gameplay.Characters
 
             foreach (var neighbor in neighbors)
             {
+                if (neighbor.Data.type == NodeType.Voidd) continue;
+
                 Vector2 neighborPos = neighbor.transform.position;
                 Vector2 dirToNeighbor = (neighborPos - pos).normalized;
                 float d = Vector2.Dot(dirToNeighbor, direction);

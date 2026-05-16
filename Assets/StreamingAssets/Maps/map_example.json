@@ -17,7 +17,7 @@
     { "id": 13, "x": 5.75,   "y": -0.75,   "type": 5,     "label": "Normal" },
     { "id": 14, "x": 6.75,   "y": -0.75,   "type": 6,     "label": "Exit" },
     { "id": 15, "x": 3.75,   "y": -1.75,   "type": 1,     "label": "Combat" },
-    { "id": 16, "x": 4.75,   "y": -1.75,   "type": 7,     "label": "Void" }
+    { "id": 16, "x": 4.75,   "y": -1.75,   "type": 7,     "label": "Voidd" }
   ],
   "connections": [
     { "from": 0, "to": 1 , "status":  "L"},
