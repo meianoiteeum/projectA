@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Script.Core;
 using UnityEngine;
 
@@ -10,28 +9,33 @@ namespace Script.Gameplay.Enemies
     {
         private readonly List<GameObject> _currentEnemies = new();
 
-        public void Spawn(MapData mapData, IReadOnlyDictionary<int, MapNode> nodes, GameObject enemyPrefab, Action onHitPlayer)
+        public void Spawn(MapData mapData, MapBuilder mapBuilder, Action onHitPlayer)
         {
-            if (enemyPrefab == null)
-            {
-                Debug.LogWarning("[EnemySpawner] Enemy prefab não atribuído.");
-                return;
-            }
-
             foreach (var enemy in _currentEnemies)
                 if (enemy != null) UnityEngine.Object.Destroy(enemy);
             _currentEnemies.Clear();
 
-            var combatNodes = mapData.Nodes.Where(n => n.type == NodeType.Combat);
-            foreach (var nodeData in combatNodes)
+            foreach (var nodeData in mapData.Nodes)
             {
-                var nodePos = nodes[nodeData.id].transform.position;
-                Vector3 pos = new Vector3(nodePos.x, nodePos.y, nodePos.z);
-                var enemyObject = UnityEngine.Object.Instantiate(enemyPrefab, pos, Quaternion.identity);
-                enemyObject.name = $"Enemy_{nodeData.id}";
+                if (string.IsNullOrEmpty(nodeData.enemie)) continue;
+
+                var prefab = Resources.Load<GameObject>(nodeData.enemie);
+                if (prefab == null)
+                {
+                    Debug.LogWarning($"[EnemySpawner] Prefab '{nodeData.enemie}' não encontrado em Resources.");
+                    continue;
+                }
+
+                var nodePos = mapBuilder.Nodes[nodeData.id].transform.position;
+                var enemyObject = UnityEngine.Object.Instantiate(prefab, nodePos, Quaternion.identity);
+                enemyObject.name = $"Enemy_{nodeData.id}_{nodeData.enemie}";
 
                 var collision = enemyObject.GetComponent<EnemyCollision>() ?? enemyObject.AddComponent<EnemyCollision>();
                 collision.Init(onHitPlayer);
+
+                var salamander = enemyObject.GetComponent<Salamander>();
+                if (salamander != null)
+                    salamander.Init(nodeData.id, mapBuilder, mapData);
 
                 _currentEnemies.Add(enemyObject);
             }
