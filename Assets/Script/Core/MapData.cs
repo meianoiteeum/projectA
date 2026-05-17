@@ -13,6 +13,7 @@ namespace Script.Core
         public float y;
         public NodeType type;
         public string label;
+        public string enemie;
     }
     [Serializable]
     public class ConnectionData

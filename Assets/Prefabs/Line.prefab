@@ -85,6 +85,8 @@ LineRenderer:
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.2
@@ -137,7 +139,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 20, y: 20}
+    textureScale: {x: 25.25, y: 20}
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -153,7 +155,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f99adc6e6cb4873a0d9e730cbdfe0a6, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Core.MapLine
   colorReleased: {r: 0, g: 0, b: 1, a: 1}
   colorBlocked: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorVoidd: {r: 0, g: 0, b: 0, a: 0}

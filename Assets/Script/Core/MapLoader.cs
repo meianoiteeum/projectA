@@ -26,10 +26,6 @@ namespace Script.Core
         [SerializeField]
         private GameObject arrowPrefab;
 
-        [Header("Enemies")]
-        [SerializeField]
-        private GameObject enemyPrefab;
-
         private MapData _mapData;
         private readonly MapBuilder _mapBuilder = new();
         private readonly PlayerSpawner _playerSpawner = new();
@@ -64,7 +60,7 @@ namespace Script.Core
 
             _mapBuilder.Build(_mapData, nodePrefab, linePrefab, transform, scale);
             _playerSpawner.Spawn(_mapData, _mapBuilder.Nodes, new Player(playerPrefab, arrowPrefab), _mapBuilder, ReloadMap);
-            _enemySpawner.Spawn(_mapData, _mapBuilder.Nodes, enemyPrefab, ReloadMap);
+            _enemySpawner.Spawn(_mapData, _mapBuilder, ReloadMap);
         }
 
         public void ReloadMap()

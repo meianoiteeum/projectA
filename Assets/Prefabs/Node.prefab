@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1956811387
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -110,9 +110,13 @@ MonoBehaviour:
   spriteRest: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   spriteTreasure: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   spriteEnd: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  spriteNormal: {fileID: 0}
+  spriteVoid: {fileID: 0}
   colorStart: {r: 0.2, g: 0.9, b: 0.2, a: 1}
   colorCombat: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   colorShop: {r: 0.9, g: 0.8, b: 0.1, a: 1}
   colorRest: {r: 0.3, g: 0.6, b: 1, a: 1}
   colorTreasure: {r: 1, g: 0.6, b: 0, a: 1}
   colorEnd: {r: 0.8, g: 0.2, b: 0.9, a: 1}
+  colorNormal: {r: 1, g: 1, b: 1, a: 1}
+  colorVoid: {r: 0, g: 0, b: 0, a: 0}

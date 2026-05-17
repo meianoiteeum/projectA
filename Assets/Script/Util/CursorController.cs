@@ -3,15 +3,25 @@ using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
-void Start()
+    static CursorController instance;
+    [SerializeField] RectTransform tr;
+    void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         Cursor.visible = false;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        UnityEngine.Vector2 cursorPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        transform.position = cursorPos;
+        tr.anchoredPosition = Input.mousePosition;
     }
 
 }
