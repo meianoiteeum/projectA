@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: acb5db09c5c1d3a4db315d807d2ddfab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6097406321935740402
+    second: logo_vermelho_linhas_brancas_0
+  - first:
+      213: -2323994855564878349
+    second: logo_vermelho_linhas_brancas_1
+  - first:
+      213: 314006564386925320
+    second: logo_vermelho_linhas_brancas_2
+  - first:
+      213: -1779318746827730330
+    second: logo_vermelho_linhas_brancas_3
+  - first:
+      213: -5770608236824620748
+    second: logo_vermelho_linhas_brancas_4
+  - first:
+      213: -904831402217280905
+    second: logo_vermelho_linhas_brancas_5
+  - first:
+      213: 7576834921921148074
+    second: logo_vermelho_linhas_brancas_6
+  - first:
+      213: -2740528610935030031
+    second: logo_vermelho_linhas_brancas_7
+  - first:
+      213: 6151003593964611490
+    second: logo_vermelho_linhas_brancas_8
+  - first:
+      213: -8113049977031210522
+    second: logo_vermelho_linhas_brancas_9
+  - first:
+      213: 3883868307694717527
+    second: logo_vermelho_linhas_brancas_10
+  - first:
+      213: -1135848497796123098
+    second: logo_vermelho_linhas_brancas_11
+  - first:
+      213: -5357620168616107494
+    second: logo_vermelho_linhas_brancas_12
+  - first:
+      213: 7299754544245776637
+    second: logo_vermelho_linhas_brancas_13
+  - first:
+      213: 7976599026823792096
+    second: logo_vermelho_linhas_brancas_14
+  - first:
+      213: 3027118401267977620
+    second: logo_vermelho_linhas_brancas_15
+  - first:
+      213: 562960057348395362
+    second: logo_vermelho_linhas_brancas_16
+  - first:
+      213: -1756032666625752194
+    second: logo_vermelho_linhas_brancas_17
+  - first:
+      213: 4721439133608545047
+    second: logo_vermelho_linhas_brancas_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_0
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 742
+        width: 1014
+        height: 1171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e029cc17149a16ba0800000000000000
+      internalID: -6097406321935740402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_1
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 393
+        width: 125
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd583eedf28fbfd0800000000000000
+      internalID: -2323994855564878349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_2
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 390
+        width: 114
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b6c6f7e439b5400800000000000000
+      internalID: 314006564386925320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_3
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 390
+        width: 116
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662d329e6079e47e0800000000000000
+      internalID: -1779318746827730330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_4
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 390
+        width: 113
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4311022f16eaaefa0800000000000000
+      internalID: -5770608236824620748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_5
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 393
+        width: 27
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a683932a46173f0800000000000000
+      internalID: -904831402217280905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_6
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 390
+        width: 129
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa472eab733562960800000000000000
+      internalID: 7576834921921148074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_7
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 390
+        width: 114
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe3c609fbfa7f9d0800000000000000
+      internalID: -2740528610935030031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_8
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 390
+        width: 129
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a76966ed21cc5550800000000000000
+      internalID: 6151003593964611490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_9
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 390
+        width: 125
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9401ad708a86f80800000000000000
+      internalID: -8113049977031210522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_10
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 12
+        width: 324
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a8a82f5a546e530800000000000000
+      internalID: 3883868307694717527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_11
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 255
+        width: 121
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626733a2fc7ac30f0800000000000000
+      internalID: -1135848497796123098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_12
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 12
+        width: 85
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a122b20b7d8e5a5b0800000000000000
+      internalID: -5357620168616107494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_13
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 240
+        width: 87
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0205d0510fd4560800000000000000
+      internalID: 7299754544245776637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_14
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 255
+        width: 121
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e50f859d8292be60800000000000000
+      internalID: 7976599026823792096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_15
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 7
+        width: 231
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d40a8c52c720a20800000000000000
+      internalID: 3027118401267977620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_16
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 12
+        width: 85
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2611cf0803900d700800000000000000
+      internalID: 562960057348395362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_17
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 7
+        width: 231
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e734ac3f79151a7e0800000000000000
+      internalID: -1756032666625752194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo_vermelho_linhas_brancas_18
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 7
+        width: 203
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b8d5370ebe58140800000000000000
+      internalID: 4721439133608545047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      logo_vermelho_linhas_brancas_0: -6097406321935740402
+      logo_vermelho_linhas_brancas_1: -2323994855564878349
+      logo_vermelho_linhas_brancas_10: 3883868307694717527
+      logo_vermelho_linhas_brancas_11: -1135848497796123098
+      logo_vermelho_linhas_brancas_12: -5357620168616107494
+      logo_vermelho_linhas_brancas_13: 7299754544245776637
+      logo_vermelho_linhas_brancas_14: 7976599026823792096
+      logo_vermelho_linhas_brancas_15: 3027118401267977620
+      logo_vermelho_linhas_brancas_16: 562960057348395362
+      logo_vermelho_linhas_brancas_17: -1756032666625752194
+      logo_vermelho_linhas_brancas_18: 4721439133608545047
+      logo_vermelho_linhas_brancas_2: 314006564386925320
+      logo_vermelho_linhas_brancas_3: -1779318746827730330
+      logo_vermelho_linhas_brancas_4: -5770608236824620748
+      logo_vermelho_linhas_brancas_5: -904831402217280905
+      logo_vermelho_linhas_brancas_6: 7576834921921148074
+      logo_vermelho_linhas_brancas_7: -2740528610935030031
+      logo_vermelho_linhas_brancas_8: 6151003593964611490
+      logo_vermelho_linhas_brancas_9: -8113049977031210522
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
