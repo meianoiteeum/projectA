@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Script.Util
 {
@@ -8,18 +10,25 @@ namespace Script.Util
     [Header("Configurações de Cena")]
     [Tooltip("Nome exato da cena do jogo para carregar.")]
     [SerializeField] private string gameSceneName = "Animation";
+    [SerializeField] private string creditsSceneName = "Credits";
 
     [Header("Gerenciamento de Telas")]
     [Tooltip("Arraste o painel principal do menu aqui para abri-lo ao iniciar.")]
     [SerializeField] private GameObject initialMenu;
     
-    [Tooltip("Coloque TODOS os painéis de menu aqui (Principal, Opções, Créditos, etc).")]
+    [Tooltip("Coloque TODOS os painéis de menu aqui (Principal, Opções, etc).")]
     [SerializeField] private GameObject[] allMenus;
 
     [Header("Links Externos")]
     [SerializeField] private string itchIoUrl = "https://paginaDojogo.itch.io/";
     [SerializeField] private string linkTreeUrl = "https://linktr.ee/perfilDoStudio";
-
+    
+    [Header("Buttons")]
+    [Tooltip("Arraste os botões")]
+    [SerializeField] Button playGameButton;
+    [SerializeField]Button quitGameButton;
+    [SerializeField]Button creditsButton;
+    
     private void Start()
     {
         // Inicia o jogo sempre no menu principal
@@ -51,6 +60,12 @@ namespace Script.Util
         Debug.Log("Fechando o jogo...");
         Application.Quit();
     }
+
+    public void OpenCredits()
+    {
+        Debug.Log("Indo para os creditos...");
+        SceneManager.LoadScene(creditsSceneName);
+    }
     //Lista de links externos
     public enum SocialPlatform { ItchIo, LinkTree }
 
@@ -76,6 +91,20 @@ namespace Script.Util
         {
             Debug.LogWarning("O link para " + platform.ToString() + " está vazio no Inspector!");
         }
+    }
+
+    private void OnEnable()
+    {
+        creditsButton.onClick.AddListener(OpenCredits);
+        playGameButton.onClick.AddListener(PlayGame);
+        quitGameButton.onClick.AddListener(QuitGame);
+    }
+
+    private void OnDisable()
+    {
+        creditsButton.onClick.RemoveListener(OpenCredits);
+        playGameButton.onClick.RemoveListener(PlayGame);
+        quitGameButton.onClick.RemoveListener(QuitGame);
     }
 }
 }
