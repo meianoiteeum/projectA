@@ -15215,7 +15215,7 @@ MonoBehaviour:
   linePrefab: {fileID: 4668354740372161833, guid: 0e53968241a3aa643a1889102ecbe609, type: 3}
   scale: 2
   playerPrefab: {fileID: 201781331618697672, guid: 31e04b88d2058974ba472eace478f210, type: 3}
-  arrowPrefab: {fileID: 4174805343094770700, guid: 712138d329cb05a42b8c8817f20035fd, type: 3}
+  arrowPrefab: {fileID: 5881428998407030363, guid: ae63ed0b8efdaf147b59a6fd3167d59c, type: 3}
 --- !u!4 &980843606
 Transform:
   m_ObjectHideFlags: 0
