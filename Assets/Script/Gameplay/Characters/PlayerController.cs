@@ -81,6 +81,7 @@ namespace Script.Gameplay.Characters
             {
                 _mapBuilder.Nodes[_selectedNodeId].Unhighlight();
                 MapEvents.OnCharacterSwitched?.Invoke(transform, true);
+                MapEvents.OnArrowStateChanged?.Invoke(transform, ArrowState.Player);
             }
             else
             {
@@ -89,6 +90,7 @@ namespace Script.Gameplay.Characters
                 _hasMoved = false;
                 _mapBuilder.Nodes[_selectedNodeId].Highlight();
                 MapEvents.OnCharacterSwitched?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, false);
+                MapEvents.OnArrowStateChanged?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, ArrowState.Node);
             }
         }
 
@@ -131,6 +133,7 @@ namespace Script.Gameplay.Characters
                 _hasMoved = false;
                 _mapBuilder.Nodes[_selectedNodeId].Highlight();
                 MapEvents.OnCharacterSwitched?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, false);
+                MapEvents.OnArrowStateChanged?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, ArrowState.Node);
                 return;
             }
 
@@ -161,6 +164,7 @@ namespace Script.Gameplay.Characters
             _hasMoved = true;
             _mapBuilder.Nodes[_selectedNodeId].Highlight();
             MapEvents.OnCharacterSwitched?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, false);
+            MapEvents.OnArrowStateChanged?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, ArrowState.Node);
         }
 
         private void TryRotate(bool clockwise)
@@ -168,7 +172,11 @@ namespace Script.Gameplay.Characters
             _isRotating = true;
             bool started = _mapBuilder.RotateNode(_selectedNodeId, clockwise, _mapData, rotationDuration,
                 () => _isRotating = false);
-            if (!started) _isRotating = false;
+            if (!started)
+            {
+                _isRotating = false;
+                MapEvents.OnArrowStateChanged?.Invoke(null, ArrowState.NoRotation);
+            }
         }
 
         private IEnumerator MoveToNode(MapNode target)
