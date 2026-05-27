@@ -10,7 +10,7 @@ public class ScreenTransition : MonoBehaviour
     {
         anim.Play("FadeOut");
         sceneNameToLoad = sceneName;
-        Invoke("LoadSceneAfter", anim.GetCurrentAnimatorStateInfo(0).length);
+        Invoke(nameof(LoadSceneAfter), anim.GetCurrentAnimatorStateInfo(0).length);
     }
     void LoadSceneAfter()
     {

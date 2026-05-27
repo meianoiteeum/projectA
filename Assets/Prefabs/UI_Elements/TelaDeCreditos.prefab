@@ -1047,6 +1047,7 @@ MonoBehaviour:
   canvasScaler: {fileID: 7548031264112385288}
   screenPerSecond: 0.2
   margin: 540
+  screenTransition: {fileID: 6685605519026937700, guid: 92083ca33f8950140a36d80943b8efa3, type: 3}
 --- !u!1 &2467249046941849517
 GameObject:
   m_ObjectHideFlags: 0
