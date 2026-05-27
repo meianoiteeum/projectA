@@ -37,9 +37,10 @@ namespace Script.Gameplay.Characters
             pc.Init(startNode.id, mapBuilder, mapData, onReachEnd);
             playerObject.name = "Player";
 
-            //var cam = Camera.main;
-            //if (cam != null && cam.GetComponent<CameraFollow>() == null)
-               // cam.gameObject.AddComponent<CameraFollow>();
+// Codigo da camera
+            var cam = Camera.main;
+            if (cam != null && cam.GetComponent<CameraFollow>() == null)
+               cam.gameObject.AddComponent<CameraFollow>();
 
             var playerTransform = playerObject.transform;
             
