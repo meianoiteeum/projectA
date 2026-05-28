@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae43fef8f991484ca1e06a9d04cc59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
-  gameSceneName: GameScene
+  gameSceneName: Level 00
   creditsSceneName: "Cr\xE9ditos"
   screenTransition: {fileID: 1153300874}
   initialMenu: {fileID: 760769373}
