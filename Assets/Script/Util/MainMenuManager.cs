@@ -11,6 +11,7 @@ namespace Script.Util
     [Tooltip("Nome exato da cena do jogo para carregar.")]
     [SerializeField] private string gameSceneName = "Animation";
     [SerializeField] private string creditsSceneName = "Credits";
+    [SerializeField] ScreenTransition screenTransition;
 
     [Header("Gerenciamento de Telas")]
     [Tooltip("Arraste o painel principal do menu aqui para abri-lo ao iniciar.")]
@@ -52,7 +53,8 @@ namespace Script.Util
     public void PlayGame()
     {
         Debug.Log("Carregando a cena de teste: " + gameSceneName);
-        SceneManager.LoadScene(gameSceneName);
+        screenTransition.LoadScene(gameSceneName);
+        
     } 
     //Método para sair do jogo
     public void QuitGame()
@@ -64,7 +66,7 @@ namespace Script.Util
     public void OpenCredits()
     {
         Debug.Log("Indo para os creditos...");
-        SceneManager.LoadScene(creditsSceneName);
+        screenTransition.LoadScene(creditsSceneName);
     }
     //Lista de links externos
     public enum SocialPlatform { ItchIo, LinkTree }

@@ -1,8 +1,5 @@
 using System.Collections;
-using Unity.VectorGraphics;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
@@ -11,9 +8,11 @@ public class Credits : MonoBehaviour
    [SerializeField] CanvasScaler canvasScaler;
    [Range(0.1f, 2)][SerializeField] float screenPerSecond = 0.1f;
    [SerializeField] private int margin = 40;
+   [SerializeField] ScreenTransition screenTransition;
+   [SerializeField] Button closeButton;
    float screenHeight;
    Vector2 creditsPosition;
-   bool isPaused = false;
+   bool isPaused;
    
     IEnumerator Start()
     {
@@ -54,7 +53,17 @@ public class Credits : MonoBehaviour
     {
         Debug.Log("Ending credits");
         //TO DO Fade Out to Menu
-        SceneManager.LoadScene("MainMenu");
+        screenTransition.LoadScene("MainMenu");
 
+    }
+
+    private void OnEnable()
+    {
+        closeButton.onClick.AddListener(EndCredits);
+    }
+
+    private void OnDisable()
+    {
+        closeButton.onClick.RemoveListener(EndCredits);
     }
 }
