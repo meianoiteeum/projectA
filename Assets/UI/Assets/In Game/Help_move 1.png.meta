@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 283a6a69796ec724390ebd90a9f068ce
+guid: 8cf292cd4a4655b4ab912abdbd519a85
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2603584821982516164
-    second: Black_square_0
+      213: -8201824987050827950
+    second: Help_move_0
+  - first:
+      213: 8082259854702957066
+    second: Help_move_1
+  - first:
+      213: -4603793717750450329
+    second: Help_move_2
+  - first:
+      213: -4525065616728472684
+    second: Help_move_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +61,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 24, y: 24, z: 24, w: 24}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Black_square_0
+      name: Help_move_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 102
-        height: 102
+        width: 78
+        height: 79
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3c222716653edbd0800000000000000
-      internalID: -2603584821982516164
+      spriteID: a0258f52484f92070800000000000000
+      internalID: 8082259854702957066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Help_move_0
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 86
+        width: 79
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36e921698e9bbf4d91ca932426129ad
+      internalID: -8201824987050827950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Help_move_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9916d1a83bf924893f707cf81c64bd
+      internalID: -4603793717750450329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Help_move_3
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 0
+        width: 78
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27efe1247c8c72c49b4ceada92d2f96f
+      internalID: -4525065616728472684
       vertices: []
       indices: 
       edges: []
@@ -138,17 +213,22 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: b30b99c290cdce540a194be5be651b15
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Black_square_0: -2603584821982516164
+      Help_move_0: -8201824987050827950
+      Help_move_1: 8082259854702957066
+      Help_move_2: -4603793717750450329
+      Help_move_3: -4525065616728472684
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
