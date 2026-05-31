@@ -1,4 +1,5 @@
 using System;
+using Script.Core;
 using UnityEngine;
 
 namespace Script.Gameplay.Enemies
@@ -15,7 +16,10 @@ namespace Script.Gameplay.Enemies
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
+            {
+                MapEvents.OnGameStateChanged?.Invoke(GameState.MORTE);
                 _onHitPlayer?.Invoke();
+            }
         }
     }
 }
