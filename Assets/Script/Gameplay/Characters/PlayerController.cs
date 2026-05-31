@@ -76,6 +76,7 @@ namespace Script.Gameplay.Characters
             if (_isRotating) return;
 
             _controllingPlayer = !_controllingPlayer;
+            MapEvents.OnGameStateChanged?.Invoke(GameState.SWITCH);
 
             if (_controllingPlayer)
             {
@@ -157,12 +158,17 @@ namespace Script.Gameplay.Characters
                 }
             }
 
-            if (bestNeighbor == null) return;
+            if (bestNeighbor == null)
+            {
+                MapEvents.OnGameStateChanged?.Invoke(GameState.ERRO);
+                return;
+            }
 
             _mapBuilder.Nodes[_selectedNodeId].Unhighlight();
             _selectedNodeId = bestNeighbor.Data.id;
             _hasMoved = true;
             _mapBuilder.Nodes[_selectedNodeId].Highlight();
+            MapEvents.OnGameStateChanged?.Invoke(GameState.MOVIMENTACAO_NODE);
             MapEvents.OnCharacterSwitched?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, false);
             MapEvents.OnArrowStateChanged?.Invoke(_mapBuilder.Nodes[_selectedNodeId].transform, ArrowState.Node);
         }
@@ -172,10 +178,15 @@ namespace Script.Gameplay.Characters
             _isRotating = true;
             bool started = _mapBuilder.RotateNode(_selectedNodeId, clockwise, _mapData, rotationDuration,
                 () => _isRotating = false);
-            if (!started)
+            if (started)
+            {
+                MapEvents.OnGameStateChanged?.Invoke(GameState.ROTACAO);
+            }
+            else
             {
                 _isRotating = false;
                 MapEvents.OnArrowStateChanged?.Invoke(null, ArrowState.NoRotation);
+                MapEvents.OnGameStateChanged?.Invoke(GameState.ERRO);
             }
         }
 
@@ -183,6 +194,7 @@ namespace Script.Gameplay.Characters
         {
             _isMoving = true;
             _currentNodeId = target.Data.id;
+            MapEvents.OnGameStateChanged?.Invoke(GameState.MOVIMENTACAO);
             Vector3 startPos = transform.position;
             Vector3 endPos = new Vector3(target.transform.position.x, target.transform.position.y + 0.1f, target.transform.position.z);
             float elapsed = 0f;
