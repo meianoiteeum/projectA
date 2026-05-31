@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject confirmationTab;
+    [SerializeField] ScreenTransition screenTransition;
     
     [Header("UI Elements - Buttons")] 
     [SerializeField] Button continueButton;
@@ -89,7 +90,7 @@ public class PauseMenu : MonoBehaviour
 
     void OnMenuClick()
     {
-        SceneManager.LoadScene("MainMenu");
+        screenTransition.LoadScene("MainMenu");
         Time.timeScale = 1;
         isPaused = false;
         pauseMenu.SetActive(false);

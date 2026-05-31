@@ -104,13 +104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d2c99395fb4df5b5c32e44180ae013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Core.MapNode
-  spriteStart: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
-  spriteCombat: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
-  spriteShop: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
-  spriteRest: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
-  spriteTreasure: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
-  spriteEnd: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
-  spriteNormal: {fileID: 3692774227293436264, guid: e2996d82c60e1714ca3322ee66fb66ff, type: 3}
+  spriteStart: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
+  spriteCombat: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
+  spriteShop: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
+  spriteRest: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
+  spriteTreasure: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
+  spriteEnd: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
+  spriteNormal: {fileID: 6147276325341401566, guid: 6406838348bbc2543a3f88d49f135330, type: 3}
   spriteVoid: {fileID: 0}
   colorStart: {r: 0.2, g: 0.9, b: 0.2, a: 1}
   colorCombat: {r: 0.9, g: 0.2, b: 0.2, a: 1}
