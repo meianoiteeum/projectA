@@ -1,38 +1,25 @@
 {
   "mapName": "Level 1",
   "nodes": [
-    { "id": -1,  "x": -1,  "y": 0,    "type": 0,    "label": "Start"  },
-    { "id": 0,  "x": 0,  "y": 0,    "type": 5,    "label": "Normal"  },
+    { "id": 0,  "x": 0,  "y": 0,    "type": 0,    "label": "Start"  },
     { "id": 1,  "x": 1,   "y": 0,    "type": 5,    "label": "Normal" },
-    { "id": 2,  "x": 1,   "y": -1,   "type": 5,    "label": "Normal" },
-    { "id": 3,  "x": 2,   "y": 0,    "type": 1,    "label": "Combat", "enemie": "turtle" },
-    { "id": 4,  "x": 2,   "y": -1,    "type": 5,    "label": "Normal" },
-    { "id": 5,  "x": 3,   "y": -1,    "type": 5,    "label": "Normal" },
-    { "id": 6,  "x": 4,   "y": -1,   "type": 5,    "label": "Normal" },
-    { "id": 7,  "x": 5,   "y": -1,    "type": 5,    "label": "Normal" },
-    { "id": 8,  "x": 5,   "y": -2,    "type": 5,    "label": "Normal" },
-    { "id": 9,  "x": 6,   "y": -2,    "type": 6,    "label": "Exit" },
-    { "id": 10,  "x": 1,   "y": 1,    "type": 7,    "label": "Voidd" },
-    { "id": 11,  "x": 4,   "y": -2,    "type": 7,    "label": "Voidd" },
-    { "id": 12,  "x": 5,   "y": -3,    "type": 7,    "label": "Voidd" }
-
+    { "id": 2,  "x": 2,   "y": 0,   "type": 5,    "label": "Normal" },
+    { "id": 3,  "x": 3,   "y": 0,    "type": 5,    "label": "Normal" },
+    { "id": 4,  "x": 3,   "y": 1,    "type": 5,    "label": "Normal" },
+    { "id": 5,  "x": 3,   "y": -1,   "type": 5,    "label": "Normal" },
+    { "id": 6,  "x": 4,   "y": 0,    "type": 5,    "label": "Normal" },
+    { "id": 7,  "x": 5,   "y": 0,    "type": 5,    "label": "Normal" },
+    { "id": 8,  "x": 6,   "y": 0,    "type": 6,    "label": "Exit" }
 
   ],
   "connections": [
-    { "from": -1, "to": 0, "status":  "L"},
-    { "from": 0, "to": 1, "status":  "L"},
-    { "from": 1, "to": 2, "status":  "B"},
-    { "from": 1, "to": 3, "status":  "L"},
-    { "from": 2, "to": 4, "status":  "L"},
-    { "from": 3, "to": 4, "status":  "L"},
-    { "from": 4, "to": 5, "status":  "L"},
-    { "from": 5, "to": 6, "status":  "L"},
-    { "from": 6, "to": 7, "status":  "L"},
-    { "from": 7, "to": 8, "status":  "B"},
-    { "from": 8, "to": 9, "status":  "L"},
-    { "from": 1, "to": 10, "status":  "V"},
-    { "from": 8, "to": 11, "status":  "V"},
-    { "from": 8, "to": 12, "status":  "V"}
-
+    { "from": 0, "to": 1 , "status":  "L"},
+    { "from": 1, "to": 2 , "status":  "L"},
+    { "from": 2, "to": 3 , "status":  "B"},
+    { "from": 3, "to": 4 , "status":  "L"},
+    { "from": 3, "to": 5 , "status":  "L"},
+    { "from": 3, "to": 6 , "status":  "B"},
+    { "from": 6, "to": 7 , "status":  "L"},
+    { "from": 7, "to": 8 , "status":  "L"}
   ]
 }
