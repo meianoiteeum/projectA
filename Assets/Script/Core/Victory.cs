@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Victory : MonoBehaviour
@@ -9,8 +10,9 @@ public class Victory : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        { 
-           endLevelScript.PlayerWin();
+        {
+            endLevelScript.enabled = true;
+            endLevelScript.PlayerWin();
         }
     }
 
@@ -19,5 +21,8 @@ public class Victory : MonoBehaviour
         Gizmos.DrawWireSphere(triggerPos.position,triggerSize);
     }
 
-    
+    private void Awake()
+    {
+        endLevelScript.enabled = false;
+    }
 }
