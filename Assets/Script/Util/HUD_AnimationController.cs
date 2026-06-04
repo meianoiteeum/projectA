@@ -30,6 +30,14 @@ public class HUD_AnimationController : MonoBehaviour
             hudAnimation.Rewind(); 
             hudAnimation.Play();
         }
+        if(Input.GetKeyDown(KeyCode.P)|| Input.GetKeyDown(KeyCode.Escape))
+        {
+            hudAnimation.enabled =false;
+        }
+        else
+        {
+            hudAnimation.enabled = true;
+        }
     }
 
     // Este método continua sendo chamado pelo Animation Event no frame da rotação

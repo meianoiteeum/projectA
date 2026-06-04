@@ -442,12 +442,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6000942047480132764, guid: 50b136f754c2cfa4c890f3101017c798, type: 3}
   m_PrefabInstance: {fileID: 472740913}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 472740915}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b78c3625ec97f5745b7c6ba49beb5ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsMenu
+--- !u!1 &472740915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1088762215167600946, guid: 50b136f754c2cfa4c890f3101017c798, type: 3}
+  m_PrefabInstance: {fileID: 472740913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &768667548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,6 +852,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
+      propertyPath: pauseManager
+      value: 
+      objectReference: {fileID: 472740915}
     - target: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
       propertyPath: screenTransition
       value: 

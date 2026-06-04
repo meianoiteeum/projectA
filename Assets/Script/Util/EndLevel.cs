@@ -9,18 +9,19 @@ public class EndLevel : MonoBehaviour
     [SerializeField] Button nextLevelButton;
     [SerializeField] ScreenTransition screenTransition;
     [SerializeField] GameObject victoryPanel;
+    [SerializeField] private GameObject pauseManager;
     
     [SerializeField] bool isFinalLevel;
     [SerializeField]float currentLevelIndex = 1f;
-    
+
     public void PlayerWin()
     {
         victoryPanel.SetActive(true);
+        pauseManager.SetActive(false);
         if (isFinalLevel)
         {
             //É a fase final: Mostra os créditos, esconde o botão de próxima fase
-            creditsButton.gameObject.SetActive(true);
-            nextLevelButton.gameObject.SetActive(false);
+            GoToCredits();
             
             //Salva que o jogo foi zerado
             GameSave.SaveLevel("GameCompleted", 1);
@@ -38,18 +39,15 @@ public class EndLevel : MonoBehaviour
     void BackToMainMenu()
     {
         screenTransition.LoadScene("MainMenu");
-        victoryPanel.SetActive(false);
     }
 
     void GoToCredits()
     {
         screenTransition.LoadScene("Créditos");
-        victoryPanel.SetActive(false);
     }
 
     public void GoToNextLevel()
     {
-        victoryPanel.SetActive(false);
         float nextLevelIndex = GameSave.LoadLevel("UnlockedLevels", currentLevelIndex + 1);
         string nextLevelName = "Level" + nextLevelIndex;
         screenTransition.LoadScene(nextLevelName);

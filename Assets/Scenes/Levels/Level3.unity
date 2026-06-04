@@ -570,6 +570,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
+      propertyPath: pauseManager
+      value: 
+      objectReference: {fileID: 1118549418}
+    - target: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
       propertyPath: screenTransition
       value: 
       objectReference: {fileID: 426457952}
@@ -591,12 +595,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
   m_PrefabInstance: {fileID: 1118549416}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1118549418}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034b0d0ccff5b6645a7672ac11f3349c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndLevel
+--- !u!1 &1118549418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8316007491106100313, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
+  m_PrefabInstance: {fileID: 1118549416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1132473867
 PrefabInstance:
   m_ObjectHideFlags: 0
