@@ -259,6 +259,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3880295022716446172, guid: efd52a6c75fb12c4a9131f5520d5cdcf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13.772217
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880295022716446172, guid: efd52a6c75fb12c4a9131f5520d5cdcf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 44.87378
+      objectReference: {fileID: 0}
     - target: {fileID: 4515242777812973046, guid: efd52a6c75fb12c4a9131f5520d5cdcf, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14746,6 +14754,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8613d83d271be74a8a91e1b0a356ccb, type: 3}
+--- !u!1 &1379442930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1088762215167600946, guid: 50b136f754c2cfa4c890f3101017c798, type: 3}
+  m_PrefabInstance: {fileID: 1652512105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1652512105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14896,7 +14909,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6000942047480132764, guid: 50b136f754c2cfa4c890f3101017c798, type: 3}
   m_PrefabInstance: {fileID: 1652512105}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1379442930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b78c3625ec97f5745b7c6ba49beb5ec8, type: 3}
@@ -15128,6 +15141,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
+      propertyPath: pauseManager
+      value: 
+      objectReference: {fileID: 1379442930}
+    - target: {fileID: 5229501887288038531, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
       propertyPath: screenTransition
       value: 
       objectReference: {fileID: 957921694}
@@ -15153,7 +15170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150329840508810633, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
       propertyPath: m_SortingOrder
-      value: 32766
+      value: 32765
       objectReference: {fileID: 0}
     - target: {fileID: 6299812907770237369, guid: 078226cc4b26cbc4881dbc6b24c2f180, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -15224,7 +15241,7 @@ SceneRoots:
   - {fileID: 999668957}
   - {fileID: 590516216}
   - {fileID: 4083810543397373248}
-  - {fileID: 957921693}
   - {fileID: 378139407}
+  - {fileID: 957921693}
   - {fileID: 681862937}
   - {fileID: 1652512105}
