@@ -38,16 +38,19 @@ public class EndLevel : MonoBehaviour
     }
     void BackToMainMenu()
     {
+        Time.timeScale = 1;
         screenTransition.LoadScene("MainMenu");
     }
 
     void GoToCredits()
     {
+        Time.timeScale = 1;
         screenTransition.LoadScene("Créditos");
     }
 
     public void GoToNextLevel()
     {
+        Time.timeScale = 1;
         float nextLevelIndex = GameSave.LoadLevel("UnlockedLevels", currentLevelIndex + 1);
         string nextLevelName = "Level" + nextLevelIndex;
         screenTransition.LoadScene(nextLevelName);
