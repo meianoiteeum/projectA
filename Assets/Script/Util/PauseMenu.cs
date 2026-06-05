@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject confirmationTab;
+    
     [SerializeField] ScreenTransition screenTransition;
     
     [Header("UI Elements - Buttons")] 
@@ -51,6 +52,13 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
+        // Verifica se existe a referência e se está ocorrendo uma transição
+        if (screenTransition != null && screenTransition.IsTransitioning)
+        {
+            // Se estiver na tela de transição, não processa o input do pause
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused)
