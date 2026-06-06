@@ -13224,6 +13224,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
+      propertyPath: deadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f6f1a960c4fdad4abebea865554630b, type: 3}
+    - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
+      propertyPath: errorSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 37982c6547d892b49aac6b79a5e18f99, type: 3}
+    - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
+      propertyPath: rotateSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 140ea14e7c6ee0e4abd68f1d78e9a958, type: 3}
+    - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
+      propertyPath: switchModeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b5a324876f93a7d41a8bffa44d19f574, type: 3}
+    - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
+      propertyPath: switchNodeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2961e0cf34a02e94dbd7535c3f7ca409, type: 3}
     - target: {fileID: 495393165475258172, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
       propertyPath: m_Name
       value: Audio

@@ -15385,7 +15385,7 @@ PrefabInstance:
     - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
       propertyPath: rotateSound
       value: 
-      objectReference: {fileID: 8300000, guid: 31b6fd8885b8d7f4896c96227e804ecd, type: 3}
+      objectReference: {fileID: 8300000, guid: 140ea14e7c6ee0e4abd68f1d78e9a958, type: 3}
     - target: {fileID: 107242167589760732, guid: 7d9bfe7cf23cbad4d93215ba8083af15, type: 3}
       propertyPath: switchModeSound
       value: 
