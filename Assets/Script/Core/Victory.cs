@@ -21,9 +21,5 @@ public class Victory : MonoBehaviour
     {
         Gizmos.DrawWireSphere(triggerPos.position,triggerSize);
     }
-
-    private void Awake()
-    {
-        endLevelScript.enabled = false;
-    }
+        
 }
