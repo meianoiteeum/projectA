@@ -12,7 +12,7 @@ namespace Script.Gameplay.Characters
         private GameObject _currentArrow;
 
         public void Spawn(MapData mapData, IReadOnlyDictionary<int, MapNode> nodes,
-                          Player player, MapBuilder mapBuilder, System.Action onReachEnd = null)
+                          Player player, MapBuilder mapBuilder)
         {
             var startNode = mapData.Nodes.FirstOrDefault(n => n.type == NodeType.Start);
             if (startNode == null)
@@ -34,7 +34,7 @@ namespace Script.Gameplay.Characters
                 playerObject.AddComponent<PlayerController>();
 
             var pc = playerObject.GetComponent<PlayerController>();
-            pc.Init(startNode.id, mapBuilder, mapData, onReachEnd);
+            pc.Init(startNode.id, mapBuilder, mapData);
             playerObject.name = "Player";
 
 // Codigo da camera
