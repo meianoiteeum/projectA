@@ -20,6 +20,7 @@ public class EndLevel : MonoBehaviour
         pauseManager.SetActive(false);
         if (isFinalLevel)
         {
+            victoryPanel.SetActive(false);
             //É a fase final: Mostra os créditos, esconde o botão de próxima fase
             GoToCredits();
             
