@@ -47,4 +47,23 @@ public class GameSave
    }
    
    #endregion
+   
+   #region LEVELS
+   //const string LEVELS = "LEVELS";
+
+   public static void SaveLevel(string levelName, float unlockedLevel)
+   {
+      Debug.Log($"Saving Level {levelName}: {unlockedLevel}");
+      PlayerPrefs.SetFloat(levelName, unlockedLevel);
+   }
+
+   public static float LoadLevel(string levelName, float defaultLevel)
+   {
+      float loadedLevel = PlayerPrefs.GetFloat(levelName, defaultLevel);
+      Debug.Log($"Loading Level {levelName}: {loadedLevel}");
+      return loadedLevel;
+   }
+   
+
+   #endregion
 }
