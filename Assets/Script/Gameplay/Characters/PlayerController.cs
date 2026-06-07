@@ -21,16 +21,14 @@ namespace Script.Gameplay.Characters
         private bool _isMoving;
         private bool _isRotating;
         private bool _controllingPlayer = true;
-        private Action _onReachEnd;
 
         private IReadOnlyList<ConnectionData> Connections => _mapData?.connections;
 
-        public void Init(int startNodeId, MapBuilder mapBuilder, MapData mapData, Action onReachEnd = null)
+        public void Init(int startNodeId, MapBuilder mapBuilder, MapData mapData)
         {
             _currentNodeId = startNodeId;
             _mapBuilder = mapBuilder;
             _mapData = mapData;
-            _onReachEnd = onReachEnd;
         }
 
         void Update()
@@ -208,9 +206,6 @@ namespace Script.Gameplay.Characters
 
             transform.position = endPos;
             _isMoving = false;
-
-            if (target.Data.type == NodeType.End)
-                _onReachEnd?.Invoke();
         }
     }
 }
