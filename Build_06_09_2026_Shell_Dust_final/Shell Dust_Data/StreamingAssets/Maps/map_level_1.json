@@ -1,0 +1,21 @@
+{
+  "mapName": "Level 1",
+  "nodes": [
+    { "id": 0,  "x": 0,  "y": 0,    "type": 0,    "label": "Start"  },
+    { "id": 1,  "x": 1,   "y": 0,    "type": 5,    "label": "Normal" },
+    { "id": 2,  "x": 2,   "y": 0,   "type": 5,    "label": "Normal" },
+    { "id": 3,  "x": 2,   "y": 1,    "type": 5,    "label": "Normal" },
+    { "id": 4,  "x": 3,   "y": 1,    "type": 5,    "label": "Normal" },
+    { "id": 5,  "x": 3,   "y": 0,   "type": 5,    "label": "Normal" },
+    { "id": 6,  "x": 4,   "y": 0,    "type": 6,    "label": "Exit" }
+
+  ],
+  "connections": [
+    { "from": 0, "to": 1 , "status":  "L"},
+    { "from": 1, "to": 2 , "status":  "L"},
+    { "from": 2, "to": 3 , "status":  "L"},
+    { "from": 3, "to": 4 , "status":  "L"},
+    { "from": 4, "to": 5 , "status":  "L"},
+    { "from": 5, "to": 6 , "status":  "L"}
+  ]
+}
